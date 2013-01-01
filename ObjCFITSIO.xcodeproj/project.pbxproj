@@ -1,0 +1,695 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6317915114B4337B00207B0A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317915014B4337B00207B0A /* Cocoa.framework */; };
+		6317915B14B4337B00207B0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6317915914B4337B00207B0A /* InfoPlist.strings */; };
+		6317916714B4337B00207B0A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317916614B4337B00207B0A /* SenTestingKit.framework */; };
+		6317916814B4337B00207B0A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317915014B4337B00207B0A /* Cocoa.framework */; };
+		6317916B14B4337B00207B0A /* ObjCFITSIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317914D14B4337B00207B0A /* ObjCFITSIO.framework */; };
+		6317917114B4337B00207B0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6317916F14B4337B00207B0A /* InfoPlist.strings */; };
+		6317917414B4337B00207B0A /* ObjCFITSIOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317917314B4337B00207B0A /* ObjCFITSIOTests.m */; };
+		6317918714B433C500207B0A /* FITSFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 6317918114B433C500207B0A /* FITSFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6317918814B433C500207B0A /* FITSFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317918214B433C500207B0A /* FITSFile.m */; };
+		6317918914B433C500207B0A /* FITSHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6317918314B433C500207B0A /* FITSHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6317918A14B433C500207B0A /* FITSHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317918414B433C500207B0A /* FITSHeader.m */; };
+		6317918B14B433C500207B0A /* FITSHeaderLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 6317918514B433C500207B0A /* FITSHeaderLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6317918C14B433C500207B0A /* FITSHeaderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317918614B433C500207B0A /* FITSHeaderLine.m */; };
+		63430390152B88E30040AB4E /* DebugLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 637FBA6714B88279007582F8 /* DebugLog.m */; };
+		637FBA5D14B790A9007582F8 /* FITSHDU.h in Headers */ = {isa = PBXBuildFile; fileRef = 637FBA5B14B790A9007582F8 /* FITSHDU.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		637FBA5E14B790A9007582F8 /* FITSHDU.m in Sources */ = {isa = PBXBuildFile; fileRef = 637FBA5C14B790A9007582F8 /* FITSHDU.m */; };
+		637FBA6214B79163007582F8 /* FITSConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 637FBA6014B79163007582F8 /* FITSConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		637FBA6314B79163007582F8 /* FITSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 637FBA6114B79163007582F8 /* FITSConstants.m */; };
+		637FBA6814B88279007582F8 /* DebugLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 637FBA6614B88279007582F8 /* DebugLog.h */; };
+		637FBA6914B88279007582F8 /* DebugLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 637FBA6714B88279007582F8 /* DebugLog.m */; };
+		639A097B15F1EF3B00535CEB /* FITSImage+Scaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EA2483156FC26B00C93C20 /* FITSImage+Scaling.m */; };
+		63A3EAA214CC125C0018602F /* FITSImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 63A3EAA014CC125A0018602F /* FITSImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63A3EAA314CC125C0018602F /* FITSImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A3EAA114CC125B0018602F /* FITSImage.m */; };
+		63A3EAA614CC2BBA0018602F /* FITSImage+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 63A3EAA514CC2BB90018602F /* FITSImage+Private.h */; };
+		63C507F514B4351C00852521 /* cfortran.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507DD14B4351C00852521 /* cfortran.h */; };
+		63C507F614B4351C00852521 /* crc32.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507DE14B4351C00852521 /* crc32.h */; };
+		63C507F714B4351C00852521 /* deflate.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507DF14B4351C00852521 /* deflate.h */; };
+		63C507F814B4351C00852521 /* drvrgsiftp.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507E014B4351C00852521 /* drvrgsiftp.h */; };
+		63C507F914B4351C00852521 /* drvrsmem.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507E114B4351C00852521 /* drvrsmem.h */; };
+		63C507FA14B4351C00852521 /* eval_defs.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507E214B4351C00852521 /* eval_defs.h */; };
+		63C507FB14B4351C00852521 /* eval_tab.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507E314B4351C00852521 /* eval_tab.h */; };
+		63C507FC14B4351C00852521 /* f77_wrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507E414B4351C00852521 /* f77_wrap.h */; };
+		63C507FD14B4351C00852521 /* fitsio.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507E514B4351C00852521 /* fitsio.h */; };
+		63C507FE14B4351C00852521 /* fitsio2.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507E614B4351C00852521 /* fitsio2.h */; };
+		63C507FF14B4351C00852521 /* fpack.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507E714B4351C00852521 /* fpack.h */; };
+		63C5080014B4351C00852521 /* group.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507E814B4351C00852521 /* group.h */; };
+		63C5080114B4351C00852521 /* grparser.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507E914B4351C00852521 /* grparser.h */; };
+		63C5080214B4351C00852521 /* inffast.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507EA14B4351C00852521 /* inffast.h */; };
+		63C5080314B4351C00852521 /* inffixed.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507EB14B4351C00852521 /* inffixed.h */; };
+		63C5080414B4351C00852521 /* inflate.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507EC14B4351C00852521 /* inflate.h */; };
+		63C5080514B4351C00852521 /* inftrees.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507ED14B4351C00852521 /* inftrees.h */; };
+		63C5080614B4351C00852521 /* libcfitsio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C507EE14B4351C00852521 /* libcfitsio.a */; };
+		63C5080714B4351C00852521 /* longnam.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507EF14B4351C00852521 /* longnam.h */; };
+		63C5080814B4351C00852521 /* region.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507F014B4351C00852521 /* region.h */; };
+		63C5080914B4351C00852521 /* trees.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507F114B4351C00852521 /* trees.h */; };
+		63C5080A14B4351C00852521 /* zconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507F214B4351C00852521 /* zconf.h */; };
+		63C5080B14B4351C00852521 /* zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507F314B4351C00852521 /* zlib.h */; };
+		63C5080C14B4351C00852521 /* zutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C507F414B4351C00852521 /* zutil.h */; };
+		63C5081914B78DB700852521 /* ObjCFITSIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C5081814B78DB700852521 /* ObjCFITSIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63D40DFC1526E4AD00E38C30 /* FITSSpectrum.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D40DFA1526E4AD00E38C30 /* FITSSpectrum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63D40DFD1526E4AD00E38C30 /* FITSSpectrum.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D40DFB1526E4AD00E38C30 /* FITSSpectrum.m */; };
+		82101E1615108ED900195099 /* License.html in Resources */ = {isa = PBXBuildFile; fileRef = 82101E0A15108ED900195099 /* License.html */; };
+		82101E1715108ED900195099 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 82101E0B15108ED900195099 /* License.rtf */; };
+		82101E1815108ED900195099 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 82101E0C15108ED900195099 /* RegexKitLite.h */; };
+		82101E1915108ED900195099 /* RegexKitLite.html in Resources */ = {isa = PBXBuildFile; fileRef = 82101E0D15108ED900195099 /* RegexKitLite.html */; };
+		82101E1A15108ED900195099 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 82101E0E15108ED900195099 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		82101E2F1510CE7500195099 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 82101E2E1510CE7500195099 /* libicucore.dylib */; };
+		82530CA3151112B7008DC584 /* FITSHeader+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 82530CA2151112B7008DC584 /* FITSHeader+Private.h */; };
+		82EA2484156FC26B00C93C20 /* FITSImage+Scaling.h in Headers */ = {isa = PBXBuildFile; fileRef = 82EA2482156FC26B00C93C20 /* FITSImage+Scaling.h */; };
+		82EA2489156FD58600C93C20 /* NSArray+NumericalOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 82EA2487156FD58500C93C20 /* NSArray+NumericalOperations.h */; };
+		82EA248A156FD58600C93C20 /* NSArray+NumericalOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EA2488156FD58500C93C20 /* NSArray+NumericalOperations.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6317916914B4337B00207B0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6317914314B4337A00207B0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6317914C14B4337B00207B0A;
+			remoteInfo = ObjCFITSIO;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6317914D14B4337B00207B0A /* ObjCFITSIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCFITSIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6317915014B4337B00207B0A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		6317915314B4337B00207B0A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		6317915414B4337B00207B0A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6317915514B4337B00207B0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6317915814B4337B00207B0A /* ObjCFITSIO-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjCFITSIO-Info.plist"; sourceTree = "<group>"; };
+		6317915A14B4337B00207B0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6317915C14B4337B00207B0A /* ObjCFITSIO-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjCFITSIO-Prefix.pch"; sourceTree = "<group>"; };
+		6317916514B4337B00207B0A /* ObjCFITSIOTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCFITSIOTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6317916614B4337B00207B0A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		6317916E14B4337B00207B0A /* ObjCFITSIOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjCFITSIOTests-Info.plist"; sourceTree = "<group>"; };
+		6317917014B4337B00207B0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6317917214B4337B00207B0A /* ObjCFITSIOTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCFITSIOTests.h; sourceTree = "<group>"; };
+		6317917314B4337B00207B0A /* ObjCFITSIOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCFITSIOTests.m; sourceTree = "<group>"; };
+		6317918114B433C500207B0A /* FITSFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITSFile.h; sourceTree = "<group>"; };
+		6317918214B433C500207B0A /* FITSFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FITSFile.m; sourceTree = "<group>"; };
+		6317918314B433C500207B0A /* FITSHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITSHeader.h; sourceTree = "<group>"; };
+		6317918414B433C500207B0A /* FITSHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FITSHeader.m; sourceTree = "<group>"; };
+		6317918514B433C500207B0A /* FITSHeaderLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITSHeaderLine.h; sourceTree = "<group>"; };
+		6317918614B433C500207B0A /* FITSHeaderLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FITSHeaderLine.m; sourceTree = "<group>"; };
+		637FBA5B14B790A9007582F8 /* FITSHDU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITSHDU.h; sourceTree = "<group>"; };
+		637FBA5C14B790A9007582F8 /* FITSHDU.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FITSHDU.m; sourceTree = "<group>"; };
+		637FBA6014B79163007582F8 /* FITSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITSConstants.h; sourceTree = "<group>"; };
+		637FBA6114B79163007582F8 /* FITSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FITSConstants.m; sourceTree = "<group>"; };
+		637FBA6614B88279007582F8 /* DebugLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebugLog.h; path = Utilities/DebugLog.h; sourceTree = SOURCE_ROOT; };
+		637FBA6714B88279007582F8 /* DebugLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DebugLog.m; path = Utilities/DebugLog.m; sourceTree = SOURCE_ROOT; };
+		63A3EAA014CC125A0018602F /* FITSImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITSImage.h; sourceTree = "<group>"; };
+		63A3EAA114CC125B0018602F /* FITSImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FITSImage.m; sourceTree = "<group>"; };
+		63A3EAA514CC2BB90018602F /* FITSImage+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FITSImage+Private.h"; sourceTree = "<group>"; };
+		63A3EAA714CC353A0018602F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		63C3F9DD1511393E007B2278 /* FITSHDU+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FITSHDU+Private.h"; sourceTree = "<group>"; };
+		63C507DD14B4351C00852521 /* cfortran.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cfortran.h; sourceTree = "<group>"; };
+		63C507DE14B4351C00852521 /* crc32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crc32.h; sourceTree = "<group>"; };
+		63C507DF14B4351C00852521 /* deflate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deflate.h; sourceTree = "<group>"; };
+		63C507E014B4351C00852521 /* drvrgsiftp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drvrgsiftp.h; sourceTree = "<group>"; };
+		63C507E114B4351C00852521 /* drvrsmem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drvrsmem.h; sourceTree = "<group>"; };
+		63C507E214B4351C00852521 /* eval_defs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eval_defs.h; sourceTree = "<group>"; };
+		63C507E314B4351C00852521 /* eval_tab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eval_tab.h; sourceTree = "<group>"; };
+		63C507E414B4351C00852521 /* f77_wrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = f77_wrap.h; sourceTree = "<group>"; };
+		63C507E514B4351C00852521 /* fitsio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fitsio.h; sourceTree = "<group>"; };
+		63C507E614B4351C00852521 /* fitsio2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fitsio2.h; sourceTree = "<group>"; };
+		63C507E714B4351C00852521 /* fpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fpack.h; sourceTree = "<group>"; };
+		63C507E814B4351C00852521 /* group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = group.h; sourceTree = "<group>"; };
+		63C507E914B4351C00852521 /* grparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grparser.h; sourceTree = "<group>"; };
+		63C507EA14B4351C00852521 /* inffast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inffast.h; sourceTree = "<group>"; };
+		63C507EB14B4351C00852521 /* inffixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inffixed.h; sourceTree = "<group>"; };
+		63C507EC14B4351C00852521 /* inflate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inflate.h; sourceTree = "<group>"; };
+		63C507ED14B4351C00852521 /* inftrees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inftrees.h; sourceTree = "<group>"; };
+		63C507EE14B4351C00852521 /* libcfitsio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcfitsio.a; sourceTree = "<group>"; };
+		63C507EF14B4351C00852521 /* longnam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = longnam.h; sourceTree = "<group>"; };
+		63C507F014B4351C00852521 /* region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = region.h; sourceTree = "<group>"; };
+		63C507F114B4351C00852521 /* trees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trees.h; sourceTree = "<group>"; };
+		63C507F214B4351C00852521 /* zconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zconf.h; sourceTree = "<group>"; };
+		63C507F314B4351C00852521 /* zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zlib.h; sourceTree = "<group>"; };
+		63C507F414B4351C00852521 /* zutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zutil.h; sourceTree = "<group>"; };
+		63C5081814B78DB700852521 /* ObjCFITSIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCFITSIO.h; sourceTree = "<group>"; };
+		63D40DFA1526E4AD00E38C30 /* FITSSpectrum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITSSpectrum.h; sourceTree = "<group>"; };
+		63D40DFB1526E4AD00E38C30 /* FITSSpectrum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FITSSpectrum.m; sourceTree = "<group>"; };
+		63D40DFF1526E69200E38C30 /* FITSSpectrum+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FITSSpectrum+Private.h"; sourceTree = "<group>"; };
+		82101E0A15108ED900195099 /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = License.html; sourceTree = "<group>"; };
+		82101E0B15108ED900195099 /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
+		82101E0C15108ED900195099 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		82101E0D15108ED900195099 /* RegexKitLite.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RegexKitLite.html; sourceTree = "<group>"; };
+		82101E0E15108ED900195099 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		82101E2E1510CE7500195099 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		82530CA2151112B7008DC584 /* FITSHeader+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FITSHeader+Private.h"; sourceTree = "<group>"; };
+		82EA2482156FC26B00C93C20 /* FITSImage+Scaling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FITSImage+Scaling.h"; sourceTree = "<group>"; };
+		82EA2483156FC26B00C93C20 /* FITSImage+Scaling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FITSImage+Scaling.m"; sourceTree = "<group>"; };
+		82EA2487156FD58500C93C20 /* NSArray+NumericalOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NumericalOperations.h"; sourceTree = "<group>"; };
+		82EA2488156FD58500C93C20 /* NSArray+NumericalOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NumericalOperations.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6317914914B4337B00207B0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82101E2F1510CE7500195099 /* libicucore.dylib in Frameworks */,
+				6317915114B4337B00207B0A /* Cocoa.framework in Frameworks */,
+				63C5080614B4351C00852521 /* libcfitsio.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6317916114B4337B00207B0A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6317916714B4337B00207B0A /* SenTestingKit.framework in Frameworks */,
+				6317916814B4337B00207B0A /* Cocoa.framework in Frameworks */,
+				6317916B14B4337B00207B0A /* ObjCFITSIO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6317914114B4337A00207B0A = {
+			isa = PBXGroup;
+			children = (
+				6317915614B4337B00207B0A /* ObjCFITSIO */,
+				6317916C14B4337B00207B0A /* ObjCFITSIOTests */,
+				63C507DC14B4351C00852521 /* cfitsio */,
+				82101E0115108ED900195099 /* RegexKitLite-4.0 */,
+				6317915714B4337B00207B0A /* Supporting Files */,
+				6317914F14B4337B00207B0A /* Frameworks */,
+				6317914E14B4337B00207B0A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6317914E14B4337B00207B0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6317914D14B4337B00207B0A /* ObjCFITSIO.framework */,
+				6317916514B4337B00207B0A /* ObjCFITSIOTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6317914F14B4337B00207B0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82101E2E1510CE7500195099 /* libicucore.dylib */,
+				63A3EAA714CC353A0018602F /* QuartzCore.framework */,
+				6317915014B4337B00207B0A /* Cocoa.framework */,
+				6317916614B4337B00207B0A /* SenTestingKit.framework */,
+				6317915214B4337B00207B0A /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6317915214B4337B00207B0A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6317915314B4337B00207B0A /* AppKit.framework */,
+				6317915414B4337B00207B0A /* CoreData.framework */,
+				6317915514B4337B00207B0A /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		6317915614B4337B00207B0A /* ObjCFITSIO */ = {
+			isa = PBXGroup;
+			children = (
+				63C5081814B78DB700852521 /* ObjCFITSIO.h */,
+				637FBA6014B79163007582F8 /* FITSConstants.h */,
+				637FBA6114B79163007582F8 /* FITSConstants.m */,
+				6317918114B433C500207B0A /* FITSFile.h */,
+				6317918214B433C500207B0A /* FITSFile.m */,
+				637FBA5B14B790A9007582F8 /* FITSHDU.h */,
+				63C3F9DD1511393E007B2278 /* FITSHDU+Private.h */,
+				637FBA5C14B790A9007582F8 /* FITSHDU.m */,
+				6317918314B433C500207B0A /* FITSHeader.h */,
+				82530CA2151112B7008DC584 /* FITSHeader+Private.h */,
+				6317918414B433C500207B0A /* FITSHeader.m */,
+				63A3EAA014CC125A0018602F /* FITSImage.h */,
+				63A3EAA514CC2BB90018602F /* FITSImage+Private.h */,
+				63A3EAA114CC125B0018602F /* FITSImage.m */,
+				82EA2482156FC26B00C93C20 /* FITSImage+Scaling.h */,
+				82EA2483156FC26B00C93C20 /* FITSImage+Scaling.m */,
+				6317918514B433C500207B0A /* FITSHeaderLine.h */,
+				6317918614B433C500207B0A /* FITSHeaderLine.m */,
+				63D40DFA1526E4AD00E38C30 /* FITSSpectrum.h */,
+				63D40DFF1526E69200E38C30 /* FITSSpectrum+Private.h */,
+				63D40DFB1526E4AD00E38C30 /* FITSSpectrum.m */,
+				82EA2487156FD58500C93C20 /* NSArray+NumericalOperations.h */,
+				82EA2488156FD58500C93C20 /* NSArray+NumericalOperations.m */,
+			);
+			path = ObjCFITSIO;
+			sourceTree = "<group>";
+		};
+		6317915714B4337B00207B0A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				637FBA6614B88279007582F8 /* DebugLog.h */,
+				637FBA6714B88279007582F8 /* DebugLog.m */,
+				6317915814B4337B00207B0A /* ObjCFITSIO-Info.plist */,
+				6317915914B4337B00207B0A /* InfoPlist.strings */,
+				6317915C14B4337B00207B0A /* ObjCFITSIO-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			path = ObjCFITSIO;
+			sourceTree = "<group>";
+		};
+		6317916C14B4337B00207B0A /* ObjCFITSIOTests */ = {
+			isa = PBXGroup;
+			children = (
+				6317917214B4337B00207B0A /* ObjCFITSIOTests.h */,
+				6317917314B4337B00207B0A /* ObjCFITSIOTests.m */,
+				6317916D14B4337B00207B0A /* Supporting Files */,
+			);
+			path = ObjCFITSIOTests;
+			sourceTree = "<group>";
+		};
+		6317916D14B4337B00207B0A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6317916E14B4337B00207B0A /* ObjCFITSIOTests-Info.plist */,
+				6317916F14B4337B00207B0A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63C507DC14B4351C00852521 /* cfitsio */ = {
+			isa = PBXGroup;
+			children = (
+				63C507DD14B4351C00852521 /* cfortran.h */,
+				63C507DE14B4351C00852521 /* crc32.h */,
+				63C507DF14B4351C00852521 /* deflate.h */,
+				63C507E014B4351C00852521 /* drvrgsiftp.h */,
+				63C507E114B4351C00852521 /* drvrsmem.h */,
+				63C507E214B4351C00852521 /* eval_defs.h */,
+				63C507E314B4351C00852521 /* eval_tab.h */,
+				63C507E414B4351C00852521 /* f77_wrap.h */,
+				63C507E514B4351C00852521 /* fitsio.h */,
+				63C507E614B4351C00852521 /* fitsio2.h */,
+				63C507E714B4351C00852521 /* fpack.h */,
+				63C507E814B4351C00852521 /* group.h */,
+				63C507E914B4351C00852521 /* grparser.h */,
+				63C507EA14B4351C00852521 /* inffast.h */,
+				63C507EB14B4351C00852521 /* inffixed.h */,
+				63C507EC14B4351C00852521 /* inflate.h */,
+				63C507ED14B4351C00852521 /* inftrees.h */,
+				63C507EE14B4351C00852521 /* libcfitsio.a */,
+				63C507EF14B4351C00852521 /* longnam.h */,
+				63C507F014B4351C00852521 /* region.h */,
+				63C507F114B4351C00852521 /* trees.h */,
+				63C507F214B4351C00852521 /* zconf.h */,
+				63C507F314B4351C00852521 /* zlib.h */,
+				63C507F414B4351C00852521 /* zutil.h */,
+			);
+			path = cfitsio;
+			sourceTree = "<group>";
+		};
+		82101E0115108ED900195099 /* RegexKitLite-4.0 */ = {
+			isa = PBXGroup;
+			children = (
+				82101E0A15108ED900195099 /* License.html */,
+				82101E0B15108ED900195099 /* License.rtf */,
+				82101E0C15108ED900195099 /* RegexKitLite.h */,
+				82101E0D15108ED900195099 /* RegexKitLite.html */,
+				82101E0E15108ED900195099 /* RegexKitLite.m */,
+			);
+			path = "RegexKitLite-4.0";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6317914A14B4337B00207B0A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6317918714B433C500207B0A /* FITSFile.h in Headers */,
+				6317918914B433C500207B0A /* FITSHeader.h in Headers */,
+				6317918B14B433C500207B0A /* FITSHeaderLine.h in Headers */,
+				63C507F514B4351C00852521 /* cfortran.h in Headers */,
+				63C507F614B4351C00852521 /* crc32.h in Headers */,
+				63C507F714B4351C00852521 /* deflate.h in Headers */,
+				63C507F814B4351C00852521 /* drvrgsiftp.h in Headers */,
+				63C507F914B4351C00852521 /* drvrsmem.h in Headers */,
+				63C507FA14B4351C00852521 /* eval_defs.h in Headers */,
+				63C507FB14B4351C00852521 /* eval_tab.h in Headers */,
+				63C507FC14B4351C00852521 /* f77_wrap.h in Headers */,
+				63C507FD14B4351C00852521 /* fitsio.h in Headers */,
+				63C507FE14B4351C00852521 /* fitsio2.h in Headers */,
+				63C507FF14B4351C00852521 /* fpack.h in Headers */,
+				63C5080014B4351C00852521 /* group.h in Headers */,
+				63C5080114B4351C00852521 /* grparser.h in Headers */,
+				63C5080214B4351C00852521 /* inffast.h in Headers */,
+				63C5080314B4351C00852521 /* inffixed.h in Headers */,
+				63C5080414B4351C00852521 /* inflate.h in Headers */,
+				63C5080514B4351C00852521 /* inftrees.h in Headers */,
+				63C5080714B4351C00852521 /* longnam.h in Headers */,
+				63C5080814B4351C00852521 /* region.h in Headers */,
+				63C5080914B4351C00852521 /* trees.h in Headers */,
+				63C5080A14B4351C00852521 /* zconf.h in Headers */,
+				63C5080B14B4351C00852521 /* zlib.h in Headers */,
+				63C5080C14B4351C00852521 /* zutil.h in Headers */,
+				63C5081914B78DB700852521 /* ObjCFITSIO.h in Headers */,
+				637FBA5D14B790A9007582F8 /* FITSHDU.h in Headers */,
+				637FBA6214B79163007582F8 /* FITSConstants.h in Headers */,
+				637FBA6814B88279007582F8 /* DebugLog.h in Headers */,
+				63A3EAA214CC125C0018602F /* FITSImage.h in Headers */,
+				63A3EAA614CC2BBA0018602F /* FITSImage+Private.h in Headers */,
+				82101E1815108ED900195099 /* RegexKitLite.h in Headers */,
+				82530CA3151112B7008DC584 /* FITSHeader+Private.h in Headers */,
+				63D40DFC1526E4AD00E38C30 /* FITSSpectrum.h in Headers */,
+				82EA2484156FC26B00C93C20 /* FITSImage+Scaling.h in Headers */,
+				82EA2489156FD58600C93C20 /* NSArray+NumericalOperations.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6317914C14B4337B00207B0A /* ObjCFITSIO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6317917714B4337B00207B0A /* Build configuration list for PBXNativeTarget "ObjCFITSIO" */;
+			buildPhases = (
+				6317914814B4337B00207B0A /* Sources */,
+				6317914914B4337B00207B0A /* Frameworks */,
+				6317914A14B4337B00207B0A /* Headers */,
+				6317914B14B4337B00207B0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjCFITSIO;
+			productName = ObjCFITSIO;
+			productReference = 6317914D14B4337B00207B0A /* ObjCFITSIO.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6317916414B4337B00207B0A /* ObjCFITSIOTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6317917A14B4337B00207B0A /* Build configuration list for PBXNativeTarget "ObjCFITSIOTests" */;
+			buildPhases = (
+				6317916014B4337B00207B0A /* Sources */,
+				6317916114B4337B00207B0A /* Frameworks */,
+				6317916214B4337B00207B0A /* Resources */,
+				6317916314B4337B00207B0A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6317916A14B4337B00207B0A /* PBXTargetDependency */,
+			);
+			name = ObjCFITSIOTests;
+			productName = ObjCFITSIOTests;
+			productReference = 6317916514B4337B00207B0A /* ObjCFITSIOTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6317914314B4337A00207B0A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Soft Tenebras Lux";
+			};
+			buildConfigurationList = 6317914614B4337A00207B0A /* Build configuration list for PBXProject "ObjCFITSIO" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6317914114B4337A00207B0A;
+			productRefGroup = 6317914E14B4337B00207B0A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6317914C14B4337B00207B0A /* ObjCFITSIO */,
+				6317916414B4337B00207B0A /* ObjCFITSIOTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6317914B14B4337B00207B0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6317915B14B4337B00207B0A /* InfoPlist.strings in Resources */,
+				82101E1615108ED900195099 /* License.html in Resources */,
+				82101E1715108ED900195099 /* License.rtf in Resources */,
+				82101E1915108ED900195099 /* RegexKitLite.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6317916214B4337B00207B0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6317917114B4337B00207B0A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6317916314B4337B00207B0A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6317914814B4337B00207B0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6317918814B433C500207B0A /* FITSFile.m in Sources */,
+				6317918A14B433C500207B0A /* FITSHeader.m in Sources */,
+				6317918C14B433C500207B0A /* FITSHeaderLine.m in Sources */,
+				637FBA5E14B790A9007582F8 /* FITSHDU.m in Sources */,
+				637FBA6314B79163007582F8 /* FITSConstants.m in Sources */,
+				637FBA6914B88279007582F8 /* DebugLog.m in Sources */,
+				63A3EAA314CC125C0018602F /* FITSImage.m in Sources */,
+				82101E1A15108ED900195099 /* RegexKitLite.m in Sources */,
+				63D40DFD1526E4AD00E38C30 /* FITSSpectrum.m in Sources */,
+				82EA248A156FD58600C93C20 /* NSArray+NumericalOperations.m in Sources */,
+				639A097B15F1EF3B00535CEB /* FITSImage+Scaling.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6317916014B4337B00207B0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6317917414B4337B00207B0A /* ObjCFITSIOTests.m in Sources */,
+				63430390152B88E30040AB4E /* DebugLog.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6317916A14B4337B00207B0A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6317914C14B4337B00207B0A /* ObjCFITSIO */;
+			targetProxy = 6317916914B4337B00207B0A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6317915914B4337B00207B0A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6317915A14B4337B00207B0A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6317916F14B4337B00207B0A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6317917014B4337B00207B0A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6317917514B4337B00207B0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/cfitsio/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6317917614B4337B00207B0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/cfitsio/**";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6317917814B4337B00207B0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjCFITSIO/ObjCFITSIO-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ObjCFITSIO/**",
+					"$(PROJECT_DIR)/cfitsio/**",
+				);
+				INFOPLIST_FILE = "ObjCFITSIO/ObjCFITSIO-Info.plist";
+				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/cfitsio\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		6317917914B4337B00207B0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjCFITSIO/ObjCFITSIO-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/ObjCFITSIO/**",
+					"$(PROJECT_DIR)/cfitsio/**",
+				);
+				INFOPLIST_FILE = "ObjCFITSIO/ObjCFITSIO-Info.plist";
+				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/cfitsio\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		6317917B14B4337B00207B0A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjCFITSIO/ObjCFITSIO-Prefix.pch";
+				INFOPLIST_FILE = "ObjCFITSIOTests/ObjCFITSIOTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		6317917C14B4337B00207B0A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjCFITSIO/ObjCFITSIO-Prefix.pch";
+				INFOPLIST_FILE = "ObjCFITSIOTests/ObjCFITSIOTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6317914614B4337A00207B0A /* Build configuration list for PBXProject "ObjCFITSIO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6317917514B4337B00207B0A /* Debug */,
+				6317917614B4337B00207B0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6317917714B4337B00207B0A /* Build configuration list for PBXNativeTarget "ObjCFITSIO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6317917814B4337B00207B0A /* Debug */,
+				6317917914B4337B00207B0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6317917A14B4337B00207B0A /* Build configuration list for PBXNativeTarget "ObjCFITSIOTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6317917B14B4337B00207B0A /* Debug */,
+				6317917C14B4337B00207B0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6317914314B4337A00207B0A /* Project object */;
+}
