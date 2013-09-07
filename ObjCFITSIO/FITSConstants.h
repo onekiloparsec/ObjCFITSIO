@@ -9,7 +9,7 @@
 #import "fitsio.h"
 #import <Foundation/Foundation.h>
 
-typedef struct _FITSSize {
+typedef struct {
 	CGFloat nx;
 	CGFloat ny;
 	CGFloat nz;	
@@ -19,7 +19,7 @@ FITSSize FITSMakeSize(CGFloat nx, CGFloat ny, CGFloat nz);
 FITSSize FITSMakeZeroSize(void);
 NSString * NSStringFromFITSSize(FITSSize size);
 
-typedef enum _FITSImageType {
+typedef NS_ENUM(int, FITSImageType) {
 	FITSImageTypeByte		= BYTE_IMG,
 	FITSImageTypeShort		= SHORT_IMG,
 	FITSImageTypeLong		= LONG_IMG,
@@ -27,17 +27,17 @@ typedef enum _FITSImageType {
 	FITSImageTypeFloat		= FLOAT_IMG,
 	FITSImageTypeDouble		= DOUBLE_IMG,
 	FITSImageTypeUndefined	= 99
-} FITSImageType;
+};
 
-typedef enum _FITSHDUType {
+typedef NS_ENUM(int, FITSHDUType) {
 	FITSHDUTypeAny			= ANY_HDU,
 	FITSHDUTypeImage		= IMAGE_HDU,
 	FITSHDUTypeASCIITable	= ASCII_TBL,
 	FITSHDUTypeBinaryTable	= BINARY_TBL,
 	FITSHDUTypeUndefined	= 99
-} FITSHDUType;
+};
 
-typedef enum _FITSDataType {
+typedef NS_ENUM(int, FITSDataType) {
 	FITSDataTypeBit				= TBIT,
 	FITSDataTypeByte			= TBYTE,
 	FITSDataTypeSignedByte		= TSBYTE,
@@ -55,9 +55,9 @@ typedef enum _FITSDataType {
 	FITSDataTypeDouble			= TDOUBLE,
 	FITSDataTypeComplex			= TCOMPLEX,
 	FITSDataTypeDoubleComplex	= TDBLCOMPLEX
-} FITSDataType;
+};
 
-typedef enum _FITSImageDataType {
+typedef NS_ENUM(int, FITSImageDataType) {
 	FITSImageDataTypeByte			= FITSDataTypeByte,
 	FITSImageDataTypeSignedByte		= FITSDataTypeSignedByte,
 	FITSImageDataTypeShort			= FITSDataTypeShort,
@@ -68,7 +68,7 @@ typedef enum _FITSImageDataType {
 	FITSImageDataTypeUnsignedLong	= FITSDataTypeUnsignedLong,
 	FITSImageDataTypeFloat			= FITSDataTypeFloat,
 	FITSImageDataTypeDouble			= FITSDataTypeDouble
-} FITSImageDataType;
+};
 
 @interface NSString (FITSConstantsConversion)
 + (NSString *)FITSImageTypeString:(FITSImageType)t;

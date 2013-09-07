@@ -58,11 +58,6 @@
 		63C5081914B78DB700852521 /* ObjCFITSIO.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C5081814B78DB700852521 /* ObjCFITSIO.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D40DFC1526E4AD00E38C30 /* FITSSpectrum.h in Headers */ = {isa = PBXBuildFile; fileRef = 63D40DFA1526E4AD00E38C30 /* FITSSpectrum.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63D40DFD1526E4AD00E38C30 /* FITSSpectrum.m in Sources */ = {isa = PBXBuildFile; fileRef = 63D40DFB1526E4AD00E38C30 /* FITSSpectrum.m */; };
-		82101E1615108ED900195099 /* License.html in Resources */ = {isa = PBXBuildFile; fileRef = 82101E0A15108ED900195099 /* License.html */; };
-		82101E1715108ED900195099 /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 82101E0B15108ED900195099 /* License.rtf */; };
-		82101E1815108ED900195099 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 82101E0C15108ED900195099 /* RegexKitLite.h */; };
-		82101E1915108ED900195099 /* RegexKitLite.html in Resources */ = {isa = PBXBuildFile; fileRef = 82101E0D15108ED900195099 /* RegexKitLite.html */; };
-		82101E1A15108ED900195099 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 82101E0E15108ED900195099 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		82101E2F1510CE7500195099 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 82101E2E1510CE7500195099 /* libicucore.dylib */; };
 		82530CA3151112B7008DC584 /* FITSHeader+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 82530CA2151112B7008DC584 /* FITSHeader+Private.h */; };
 		82EA2484156FC26B00C93C20 /* FITSImage+Scaling.h in Headers */ = {isa = PBXBuildFile; fileRef = 82EA2482156FC26B00C93C20 /* FITSImage+Scaling.h */; };
@@ -140,11 +135,6 @@
 		63D40DFA1526E4AD00E38C30 /* FITSSpectrum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITSSpectrum.h; sourceTree = "<group>"; };
 		63D40DFB1526E4AD00E38C30 /* FITSSpectrum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FITSSpectrum.m; sourceTree = "<group>"; };
 		63D40DFF1526E69200E38C30 /* FITSSpectrum+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FITSSpectrum+Private.h"; sourceTree = "<group>"; };
-		82101E0A15108ED900195099 /* License.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = License.html; sourceTree = "<group>"; };
-		82101E0B15108ED900195099 /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
-		82101E0C15108ED900195099 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
-		82101E0D15108ED900195099 /* RegexKitLite.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = RegexKitLite.html; sourceTree = "<group>"; };
-		82101E0E15108ED900195099 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		82101E2E1510CE7500195099 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		82530CA2151112B7008DC584 /* FITSHeader+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FITSHeader+Private.h"; sourceTree = "<group>"; };
 		82EA2482156FC26B00C93C20 /* FITSImage+Scaling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FITSImage+Scaling.h"; sourceTree = "<group>"; };
@@ -183,7 +173,6 @@
 				6317915614B4337B00207B0A /* ObjCFITSIO */,
 				6317916C14B4337B00207B0A /* ObjCFITSIOTests */,
 				63C507DC14B4351C00852521 /* cfitsio */,
-				82101E0115108ED900195099 /* RegexKitLite-4.0 */,
 				6317915714B4337B00207B0A /* Supporting Files */,
 				6317914F14B4337B00207B0A /* Frameworks */,
 				6317914E14B4337B00207B0A /* Products */,
@@ -314,18 +303,6 @@
 			path = cfitsio;
 			sourceTree = "<group>";
 		};
-		82101E0115108ED900195099 /* RegexKitLite-4.0 */ = {
-			isa = PBXGroup;
-			children = (
-				82101E0A15108ED900195099 /* License.html */,
-				82101E0B15108ED900195099 /* License.rtf */,
-				82101E0C15108ED900195099 /* RegexKitLite.h */,
-				82101E0D15108ED900195099 /* RegexKitLite.html */,
-				82101E0E15108ED900195099 /* RegexKitLite.m */,
-			);
-			path = "RegexKitLite-4.0";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -366,7 +343,6 @@
 				63C5080C14B4351C00852521 /* zutil.h in Headers */,
 				637FBA6814B88279007582F8 /* DebugLog.h in Headers */,
 				63A3EAA614CC2BBA0018602F /* FITSImage+Private.h in Headers */,
-				82101E1815108ED900195099 /* RegexKitLite.h in Headers */,
 				82530CA3151112B7008DC584 /* FITSHeader+Private.h in Headers */,
 				82EA2484156FC26B00C93C20 /* FITSImage+Scaling.h in Headers */,
 				82EA2489156FD58600C93C20 /* NSArray+NumericalOperations.h in Headers */,
@@ -446,9 +422,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6317915B14B4337B00207B0A /* InfoPlist.strings in Resources */,
-				82101E1615108ED900195099 /* License.html in Resources */,
-				82101E1715108ED900195099 /* License.rtf in Resources */,
-				82101E1915108ED900195099 /* RegexKitLite.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +463,6 @@
 				637FBA6314B79163007582F8 /* FITSConstants.m in Sources */,
 				637FBA6914B88279007582F8 /* DebugLog.m in Sources */,
 				63A3EAA314CC125C0018602F /* FITSImage.m in Sources */,
-				82101E1A15108ED900195099 /* RegexKitLite.m in Sources */,
 				63D40DFD1526E4AD00E38C30 /* FITSSpectrum.m in Sources */,
 				82EA248A156FD58600C93C20 /* NSArray+NumericalOperations.m in Sources */,
 				639A097B15F1EF3B00535CEB /* FITSImage+Scaling.m in Sources */,
