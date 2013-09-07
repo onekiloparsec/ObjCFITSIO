@@ -11,10 +11,9 @@ Pod::Spec.new do |s|
   s.license      			= { :type => 'GPLv2', :file => 'LICENSE' }
   s.author       			= { "Cédric Foellmi" => "cedric@onekilopars.ec" }
   s.platform     			= :osx
-  s.ios.deployment_target 	= '6.0'
   s.osx.deployment_target 	= '10.8'
   s.source       			= { :git => "https://github.com/onekiloparsec/ObjCFITSIO.git", :tag => "0.0.1" }
-  s.source_files 			= 'ObjCFITSIO', 'Utilities'
+  s.source_files 			= 'ObjCFITSIO', 'Utilities', 'cfitsio'
   s.public_header_files 	= 'ObjCFITSIO/.{h}'
   s.private_header_files 	= 'cfitsio/.{h}'
   s.vendored_libraries 	 	= 'cfitsio/libcfitsio.a'

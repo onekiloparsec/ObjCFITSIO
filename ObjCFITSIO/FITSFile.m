@@ -126,7 +126,6 @@
 - (void)dealloc
 {
 	[self close];
-	dispatch_release(serialQueue);
 }
 
 - (void)open
