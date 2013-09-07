@@ -19,18 +19,12 @@ static NSInteger queueCount = 0;
 
 @implementation FITSImage
 
-@synthesize type;
-@synthesize loaded;
-@synthesize size;
-@synthesize HDUIndex;
-@synthesize fitsHDU;
-
 - (id)initWithType:(FITSImageType)t size:(FITSSize)s
 {	
 	self = [super init];
 	if (self) {
-		size = s;
-		type = t;		
+		_size = s;
+		_type = t;
 	}
 	return self;
 }
@@ -51,22 +45,22 @@ static NSInteger queueCount = 0;
 - (NSString *)description
 {
 	return [NSString stringWithFormat:@"Image %@ %@", 
-			[self humanSizeDescription], NSStringFromFITSSize(size)];
+			[self humanSizeDescription], NSStringFromFITSSize(_size)];
 }
 
 - (BOOL)is1D
 {
-	BOOL condition1 = size.nx != 0 && size.ny == 0 && size.nz == 0;
-	BOOL condition2 = size.nx == 0 && size.ny != 0 && size.nz == 0;
-	BOOL condition3 = size.nx == 0 && size.ny == 0 && size.nz != 0;
+	BOOL condition1 = _size.nx != 0 && _size.ny == 0 && _size.nz == 0;
+	BOOL condition2 = _size.nx == 0 && _size.ny != 0 && _size.nz == 0;
+	BOOL condition3 = _size.nx == 0 && _size.ny == 0 && _size.nz != 0;
 	return condition1 || condition2 || condition3;
 }
 
 - (BOOL)is2D
 {
-	BOOL condition1 = size.nx != 0 && size.ny != 0 && size.nz == 0;
-	BOOL condition2 = size.nx != 0 && size.ny == 0 && size.nz != 0;
-	BOOL condition3 = size.nx == 0 && size.ny != 0 && size.nz != 0;
+	BOOL condition1 = _size.nx != 0 && _size.ny != 0 && _size.nz == 0;
+	BOOL condition2 = _size.nx != 0 && _size.ny == 0 && _size.nz != 0;
+	BOOL condition3 = _size.nx == 0 && _size.ny != 0 && _size.nz != 0;
 	return condition1 || condition2 || condition3;
 }
 
@@ -76,7 +70,7 @@ static NSInteger queueCount = 0;
         return (long)[self spectrumLength];
     }
     else if ([self is2D]) {
-        return (long)size.nx*size.ny;
+        return (long)_size.nx*_size.ny;
     }
     else {
         return NAN;
@@ -105,8 +99,8 @@ static NSInteger queueCount = 0;
 
 - (void)set2DImageData:(double *)imageArray
 {
-	NSInteger width = (NSInteger)size.nx;
-	NSInteger height = (NSInteger)size.ny;
+	NSInteger width = (NSInteger)_size.nx;
+	NSInteger height = (NSInteger)_size.ny;
 
 	bitmapRep = [[NSBitmapImageRep alloc] initWithBitmapDataPlanes:NULL
 														pixelsWide:width
@@ -144,9 +138,9 @@ static NSInteger queueCount = 0;
 	}
 	
 	if (bitmapRep) {
-		image = [[NSImage alloc] initWithSize:NSMakeSize(size.nx, size.ny)];
+		image = [[NSImage alloc] initWithSize:NSMakeSize(_size.nx, _size.ny)];
 		[image addRepresentation:bitmapRep];
-		loaded = YES;
+		self.loaded = YES;
 	}	
 }
 
@@ -165,7 +159,7 @@ static NSInteger queueCount = 0;
 	if (h && [points count] > 0) {
 		spectrum = [FITSSpectrum spectrumWithHeader:h dataPoints:[NSArray arrayWithArray:points]];
 		spectrum.originalImage = self;
-		loaded = YES;
+		self.loaded = YES;
 	}
 }
 
@@ -175,9 +169,9 @@ static NSInteger queueCount = 0;
 	bitmapRep = newRep;
 	
 	if (bitmapRep) {
-		image = [[NSImage alloc] initWithSize:NSMakeSize(size.nx, size.ny)];
+		image = [[NSImage alloc] initWithSize:NSMakeSize(self.size.nx, self.size.ny)];
 		[image addRepresentation:bitmapRep];
-		loaded = YES;
+		self.loaded = YES;
 	}
 }
 
@@ -233,7 +227,7 @@ static NSInteger queueCount = 0;
 
 - (CGFloat)normalizedIntensityAtPoint:(NSPoint)p
 {
-	if (p.x >= size.nx || p.y >= size.ny) {
+	if (p.x >= _size.nx || p.y >= _size.ny) {
 		return NAN;
 	}
 	return [[bitmapRep colorAtX:p.x y:p.y] whiteComponent];
@@ -241,7 +235,7 @@ static NSInteger queueCount = 0;
 
 - (CGFloat)averageIntensityInRectWithCenter:(NSPoint)p width:(CGFloat)w
 {
-	if (p.x + w/2.0 >= size.nx || p.y + w/2.0 > size.ny) {
+	if (p.x + w/2.0 >= _size.nx || p.y + w/2.0 > _size.ny) {
 		return NAN;
 	}
 	
@@ -259,14 +253,14 @@ static NSInteger queueCount = 0;
 	if (![self is1D]) {
 		return NAN;
 	}
-	if (size.nx > 0) {
-		return size.nx;
+	if (_size.nx > 0) {
+		return _size.nx;
 	}
-	else if (size.ny > 0) {
-		return size.ny;
+	else if (_size.ny > 0) {
+		return _size.ny;
 	}
-	else if (size.nx > 0) {
-		return size.nz;
+	else if (_size.nx > 0) {
+		return _size.nz;
 	}
 	return NAN;
 }

@@ -22,7 +22,6 @@ typedef struct _FITSImageInfos {
 
 @interface FITSImage () {
 @private	
-	FITSHDU * __weak fitsHDU;
 	NSImage *image;
 	NSBitmapImageRep *bitmapRep;
 	FITSSpectrum *spectrum;

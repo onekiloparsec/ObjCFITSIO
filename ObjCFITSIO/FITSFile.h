@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Soft Tenebras Lux. All rights reserved.
 //
 
+#import "FITSConstants.h"
+
 @class FITSHDU;
 @class FITSHeader;
 

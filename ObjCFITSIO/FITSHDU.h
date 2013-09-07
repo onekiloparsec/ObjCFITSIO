@@ -6,19 +6,13 @@
 //  Copyright (c) 2012 Soft Tenebras Lux. All rights reserved.
 //
 
-#import "FITSFile.h"
-#import "FITSHeader.h"
-#import "FITSImage.h"
+#import "FITSConstants.h"
 
-@interface FITSHDU : NSObject {
-@private	
-	FITSFile * __weak fitsFile;
-	FITSHDUType type;
-	NSUInteger index;
-	
-	FITSHeader *header;
-	FITSImage *image;
-}
+@class FITSFile;
+@class FITSHeader;
+@class FITSImage;
+
+@interface FITSHDU : NSObject 
 
 @property(nonatomic, weak, readonly) FITSFile *fitsFile;
 @property(nonatomic, assign, readonly) FITSHDUType type;

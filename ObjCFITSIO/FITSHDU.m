@@ -17,21 +17,15 @@
 
 @implementation FITSHDU
 
-@synthesize index;
-@synthesize fitsFile;
-@synthesize type;
-@synthesize header;
-@synthesize image;
-
 - (id)initAtIndex:(NSUInteger)idx inFITSFile:(FITSFile *)fits
 {
 	NSAssert(fits, @"Fits file cannot be nil.");
 	
 	self = [super init];
 	if (self) {
-		fitsFile = fits;
-		index = idx;
-		type = FITSHDUTypeUndefined;
+		_fitsFile = fits;
+		_index = idx;
+		_type = FITSHDUTypeUndefined;
 	}
 	return self;
 }
@@ -43,12 +37,12 @@
 
 - (FITSHeader *)header
 {
-	return header;
+	return _header;
 }
 
 - (FITSImage *)image
 {
-	return image;
+	return _image;
 }
 
 @end

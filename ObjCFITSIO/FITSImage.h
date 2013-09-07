@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 Soft Tenebras Lux. All rights reserved.
 //
 
+#import "FITSConstants.h"
+
 @class FITSHeader;
 @class FITSImage;
 @class FITSSpectrum;
@@ -15,8 +17,6 @@ typedef void(^FITSImageScalingBlock_t)(double progress);
 
 @interface FITSImage : NSObject {
 @private	
-	FITSImageType type;	// bitpix;
-	FITSSize size;
 	dispatch_queue_t processingQueue;
 }
 

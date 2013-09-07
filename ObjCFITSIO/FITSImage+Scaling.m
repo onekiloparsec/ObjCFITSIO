@@ -56,9 +56,9 @@
 	NSUInteger maxPixel = 255;
 	
 	NSUInteger pix;
-	for (NSInteger i = 0; i < size.nx; i ++) {
-		for (NSInteger j = 0; j < size.ny; j ++) {
-			progressBlock((double)i/size.nx);
+	for (NSInteger i = 0; i < self.size.nx; i ++) {
+		for (NSInteger j = 0; j < self.size.ny; j ++) {
+			progressBlock((double)i/self.size.nx);
 			
 			[bitmapRep getPixel:&pix atX:i y:j];
 			
@@ -141,19 +141,19 @@
 
 - (NSArray *)zscaleSamples:(NSUInteger)maxpix source:(double *)imageArray
 {
-    double stride = MAX(1.0, sqrt((size.nx - 1.0) * (size.ny - 1.0) / (double)maxpix));
+    double stride = MAX(1.0, sqrt((self.size.nx - 1.0) * (self.size.ny - 1.0) / (double)maxpix));
 	DebugLog(@"Sampling image, maxpix: %ld, stride %.0f", maxpix, stride);
 
 	NSUInteger pix;
 	NSMutableArray *samples = [NSMutableArray array];
 	
-	for (NSInteger i = 0; i < size.nx; i += (NSInteger)floor(stride)) {
-		for (NSInteger j = 0; j < size.ny; j += (NSInteger)floor(stride)) {
+	for (NSInteger i = 0; i < self.size.nx; i += (NSInteger)floor(stride)) {
+		for (NSInteger j = 0; j < self.size.ny; j += (NSInteger)floor(stride)) {
 			if (imageArray == nil) {
 				[bitmapRep getPixel:&pix atX:i y:j];
 			}
 			else {
-				pix = (NSUInteger)floor(imageArray[j*(NSUInteger)size.nx+i]);
+				pix = (NSUInteger)floor(imageArray[j*(NSUInteger)self.size.nx+i]);
 			}
 			[samples addObject:@(pix)];
 		}
