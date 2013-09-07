@@ -14,6 +14,8 @@
 #import "FITSImage+Private.h"
 #import "NSArray+NumericalOperations.h"
 
+#import "DebugLog.h"
+
 #define MAX_REJECT      0.5 
 #define MIN_NPIXELS     5 
 #define GOOD_PIXEL      0 

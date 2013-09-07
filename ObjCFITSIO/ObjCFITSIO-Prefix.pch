@@ -4,7 +4,4 @@
 
 #ifdef __OBJC__
 	#import <Cocoa/Cocoa.h>
-	#import "fitsio.h"
-	#import "FITSConstants.h"
-	#import "DebugLog.h"
 #endif

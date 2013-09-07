@@ -15,6 +15,8 @@
 #import "FITSSpectrum+Private.h"
 #import "FITSConstants.h"
 
+#import "DebugLog.h"
+
 static NSInteger queueCount = 0;
 
 @implementation FITSImage

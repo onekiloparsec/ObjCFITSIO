@@ -19,6 +19,8 @@
 
 #import "FITSConstants.h"
 
+#import "DebugLog.h"
+
 // This private iterface is kept here and not in a separate header, as it is relevant only here.
 
 @interface FITSFile () {
