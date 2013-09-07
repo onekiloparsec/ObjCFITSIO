@@ -3,7 +3,7 @@
 //  Stif
 //
 //  Created by Cédric Foellmi on 1/1/12.
-//  Copyright (c) 2012 Soft Tenebras Lux. All rights reserved.
+//  Copyright (c) 2012 onekiloparsec. All rights reserved.
 //
 
 #import "FITSHeader.h"

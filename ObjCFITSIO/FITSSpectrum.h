@@ -3,7 +3,7 @@
 //  ObjCFITSIO
 //
 //  Created by Cédric Foellmi on 31/3/12.
-//  Copyright (c) 2012 Soft Tenebras Lux. All rights reserved.
+//  Copyright (c) 2012 onekiloparsec. All rights reserved.
 //
 
 @class FITSImage;

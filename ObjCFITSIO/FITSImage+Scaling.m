@@ -3,7 +3,7 @@
 //  ObjCFITSIO
 //
 //  Created by Cédric Foellmi on 5/25/12.
-//  Copyright (c) 2012 Soft Tenebras Lux. All rights reserved.
+//  Copyright (c) 2012 onekiloparsec. All rights reserved.
 //
 
 // Translated from http://stsdas.stsci.edu/stsci_python_epydoc/numdisplay/numdisplay.zscale-pysrc.html#zscale
