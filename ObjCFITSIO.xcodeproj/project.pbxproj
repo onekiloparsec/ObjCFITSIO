@@ -577,8 +577,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjCFITSIO/ObjCFITSIO-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/ObjCFITSIO/**",
 					"$(PROJECT_DIR)/cfitsio/**",
+					"$(PROJECT_DIR)/ObjCFITSIO/**",
 				);
 				INFOPLIST_FILE = "ObjCFITSIO/ObjCFITSIO-Info.plist";
 				INSTALL_PATH = "@rpath";
@@ -601,8 +601,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjCFITSIO/ObjCFITSIO-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/ObjCFITSIO/**",
 					"$(PROJECT_DIR)/cfitsio/**",
+					"$(PROJECT_DIR)/ObjCFITSIO/**",
 				);
 				INFOPLIST_FILE = "ObjCFITSIO/ObjCFITSIO-Info.plist";
 				INSTALL_PATH = "@rpath";
