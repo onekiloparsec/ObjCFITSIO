@@ -6,6 +6,7 @@
 //  Released under GPLv2 by onekiloparsec (Cédric Foellmi)
 //
 
+#import <Foundation/Foundation.h>
 #import "FITSImage.h"
 
 @interface FITSImage (Scaling)

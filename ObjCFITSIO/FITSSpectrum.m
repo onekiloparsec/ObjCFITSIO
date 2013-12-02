@@ -56,13 +56,13 @@
 	return (CRVAL1 + CDELT1 * ([self numberOfPoints] - CRPIX1));	
 }
 
-- (CGFloat)minimumYValueWithUnits:(FITSSpectrumXUnits)u
+- (CGFloat)minimumYValueWithUnits:(FITSSpectrumYUnits)u
 {
 	NSArray *sortedPoints = [points sortedArrayUsingSelector:@selector(compare:)];
 	return [[sortedPoints objectAtIndex:0] doubleValue];
 }
 
-- (CGFloat)maximumYValueWithUnits:(FITSSpectrumXUnits)u
+- (CGFloat)maximumYValueWithUnits:(FITSSpectrumYUnits)u
 {
 	NSArray *sortedPoints = [points sortedArrayUsingSelector:@selector(compare:)];
 	return [[sortedPoints lastObject] doubleValue];	

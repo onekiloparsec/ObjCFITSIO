@@ -6,6 +6,8 @@
 //  Released under GPLv2 by onekiloparsec (Cédric Foellmi)
 //
 
+#import <Foundation/Foundation.h>
+
 @class FITSImage;
 
 typedef NS_ENUM(int, FITSSpectrumXUnits) {
@@ -34,8 +36,8 @@ typedef NS_ENUM(int, FITSSpectrumYUnits) {
 - (CGFloat)firstXValueWithUnits:(FITSSpectrumXUnits)u;
 - (CGFloat)lastXValueWithUnits:(FITSSpectrumXUnits)u;
 
-- (CGFloat)minimumYValueWithUnits:(FITSSpectrumXUnits)u;
-- (CGFloat)maximumYValueWithUnits:(FITSSpectrumXUnits)u;
+- (CGFloat)minimumYValueWithUnits:(FITSSpectrumYUnits)u;
+- (CGFloat)maximumYValueWithUnits:(FITSSpectrumYUnits)u;
 
 - (NSArray *)rawPoints;
 - (FITSSpectrumXUnits)rawXUnits;

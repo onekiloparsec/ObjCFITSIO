@@ -11,6 +11,8 @@
  Reserved to ObjCFITSIO Internals
  ********************************/
 
+#import <Foundation/Foundation.h>
+
 @class FITSHDU;
 @class FITSSpectrum;
 

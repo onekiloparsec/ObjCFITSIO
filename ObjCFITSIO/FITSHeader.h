@@ -6,6 +6,8 @@
 //  Released under GPLv2 by onekiloparsec (Cédric Foellmi)
 //
 
+#import <Foundation/Foundation.h>
+
 @class FITSHDU;
 @class FITSHeader;
 @class FITSHeaderLine;

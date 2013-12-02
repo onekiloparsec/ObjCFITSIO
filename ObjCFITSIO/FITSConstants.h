@@ -6,8 +6,8 @@
 //  Released under GPLv2 by onekiloparsec (Cédric Foellmi)
 //
 
-#import "fitsio.h"
 #import <Foundation/Foundation.h>
+#import "fitsio.h"
 
 typedef struct {
 	CGFloat nx;

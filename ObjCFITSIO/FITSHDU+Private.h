@@ -11,6 +11,7 @@
  Reserved to ObjCFITSIO Internals
  ********************************/
 
+#import <Foundation/Foundation.h>
 #import "FITSHDU.h"
 
 @interface FITSHDU ()
