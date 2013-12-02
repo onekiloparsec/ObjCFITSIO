@@ -16,11 +16,7 @@
 
 @class FITSHDU;
 
-@interface FITSHeader () {
-@private	
-	FITSHDU * __weak fitsHDU;
-	NSUInteger HDUIndex;
-}
+@interface FITSHeader () 
 
 @property(nonatomic, assign, getter=isLoaded) BOOL loaded;
 @property(nonatomic, assign) NSUInteger HDUIndex;

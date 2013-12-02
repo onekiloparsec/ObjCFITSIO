@@ -14,7 +14,7 @@
 
 @interface FITSHeader : NSObject {
 @private	
-	NSMutableArray *lines;
+	NSMutableArray *_lines;
 }
 
 @property(nonatomic, assign, readonly, getter=isLoaded) BOOL loaded;

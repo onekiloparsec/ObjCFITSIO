@@ -19,6 +19,11 @@
 
 static NSInteger queueCount = 0;
 
+@interface FITSImage () {
+	dispatch_queue_t _processingQueue;
+}
+@end
+
 @implementation FITSImage
 
 - (id)initWithType:(FITSImageType)t size:(FITSSize)s
@@ -274,14 +279,14 @@ static NSInteger queueCount = 0;
 
 - (void)applyZscalingOnProgress:(FITSImageScalingBlock_t)progressBlock onCompletion:(FITSImageBlock_t)completionBlock
 {
-	if (processingQueue == nil) {
-		NSString *name = [NSString stringWithFormat:@"com.softtenebraslux.ObjCFITSIO.FITSImage.processingQueue%ld", queueCount];
-		processingQueue = dispatch_queue_create([name UTF8String], DISPATCH_QUEUE_SERIAL);
+	if (_processingQueue == nil) {
+		NSString *name = [NSString stringWithFormat:@"com.onekiloparsec.ObjCFITSIO.FITSImage.processingQueue%ld", queueCount];
+		_processingQueue = dispatch_queue_create([name UTF8String], DISPATCH_QUEUE_SERIAL);
 		queueCount ++;
 	}
 	
 	DebugLog(@"Applying zscaling...");
-	dispatch_async(processingQueue, ^{
+	dispatch_async(_processingQueue, ^{
 		FITSImage *newImage = [self zscaledImage:^(double progress) {
 			dispatch_async(dispatch_get_main_queue(), ^{
 				progressBlock(progress);

@@ -23,10 +23,7 @@ typedef NS_ENUM(int, FITSSpectrumYUnits) {
 	FITSSpectrumYUnitsFlux	= 2,
 };
 
-@interface FITSSpectrum : NSObject {
-@private	
-	FITSImage * __weak originalImage;
-}
+@interface FITSSpectrum : NSObject 
 
 @property(nonatomic, weak, readonly) FITSImage *originalImage;
 

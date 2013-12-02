@@ -17,12 +17,12 @@
 @class FITSHeader;
 
 @interface FITSSpectrum () {
-	NSArray *points;
-	CGFloat CRVAL1;
-	CGFloat CRPIX1;
-	CGFloat CDELT1;
-	FITSSpectrumXUnits rawXUnits;
-	FITSSpectrumYUnits rawYUnits;
+	NSArray *_points;
+	CGFloat _CRVAL1;
+	CGFloat _CRPIX1;
+	CGFloat _CDELT1;
+	FITSSpectrumXUnits _rawXUnits;
+	FITSSpectrumYUnits _rawYUnits;
 }
 
 @property(nonatomic, weak) FITSImage *originalImage;

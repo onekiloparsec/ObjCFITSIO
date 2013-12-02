@@ -14,8 +14,8 @@
 
 @interface FITSFile : NSObject {
 @private	
-	NSURL *fileURL;
-	FITSHDU *mainHDU;
+	NSURL *_fileURL;
+	FITSHDU *_mainHDU;
 }
 
 + (FITSFile *)FITSFileWithURL:(NSURL *)path;

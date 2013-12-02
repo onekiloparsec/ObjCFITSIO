@@ -24,21 +24,16 @@
 // This private iterface is kept here and not in a separate header, as it is relevant only here.
 
 @interface FITSFile () {
-	fitsfile			*fits;
-	__block int			status;
-	BOOL				isOpen;
-	NSMutableArray		*HDUs;
+	fitsfile *_fits;
+	__block int _status;
+	BOOL _isOpen;
+	NSMutableArray *_HDUs;
 	
 	// A queue allows to dispatch work on multiple threads. 
-	// The fact that a fitsfile structure works on a specific HDU index at a time implies
+	// The fact that a fitsfile structure works on one specific HDU index at a time implies
 	// that this queue must be serial, mandatorily. 
-	dispatch_queue_t	serialQueue;
+	dispatch_queue_t _serialQueue;
 }
-
-- (FITSHDUType)syncReadHDUTypeAtIndex:(NSUInteger)index;
-- (FITSImageInfos)HDUImageInfosAtIndex:(NSUInteger)index;
-- (void)rawMoveToHDUAtIndex:(NSUInteger)index;
-
 @end
 
 @implementation FITSFile
@@ -109,11 +104,11 @@
 	
 	self = [super init];
 	if (self) {
-		fileURL = [path copy];
-		status = 0;
-		isOpen = NO;
-		HDUs = [[NSMutableArray alloc] init];
-		serialQueue = dispatch_queue_create("com.softtenebraslux.ObjCFITSIO.FITSFile.serialQueue", DISPATCH_QUEUE_SERIAL);
+		_fileURL = [path copy];
+		_status = 0;
+		_isOpen = NO;
+		_HDUs = [[NSMutableArray alloc] init];
+		_serialQueue = dispatch_queue_create("com.onekiloparsec.ObjCFITSIO.FITSFile.serialQueue", DISPATCH_QUEUE_SERIAL);
 	}
 	return self;
 }
@@ -130,22 +125,22 @@
 
 - (void)open
 {
-	if (!isOpen) {
-		DebugLog(@"Opening FITS file at %@", [fileURL path]);
+	if (!_isOpen) {
+		DebugLog(@"Opening FITS file at %@", [_fileURL path]);
 		
-		dispatch_sync(serialQueue, ^{
-			fits_open_file(&fits, [[fileURL path] UTF8String], READONLY, &status);
+		dispatch_sync(_serialQueue, ^{
+			fits_open_file(&_fits, [[_fileURL path] UTF8String], READONLY, &_status);
 		});	
 		
-		if (status) {
-			NSLog(@"Error reading FITS file at URL %@", fileURL);
+		if (_status) {
+			NSLog(@"Error reading FITS file at URL %@", _fileURL);
 			return;
 		}
 
-		isOpen = YES;
+		_isOpen = YES;
 
 		int HDUCount = 0;
-		fits_get_num_hdus(fits, &HDUCount, &status);
+		fits_get_num_hdus(_fits, &HDUCount, &_status);
 		
 		DebugLog(@"Number of HDUs: %d", HDUCount);
 		
@@ -160,53 +155,53 @@
 				HDU.image = [FITSImage imageAtIndex:i fromHDU:HDU withInfos:infos];
 			}
 			
-			[HDUs addObject:HDU];
+			[_HDUs addObject:HDU];
 		}
 	}
 }
 
 - (void)close
 {
-	if (isOpen) {
-		fits_close_file(fits, &status);
-		isOpen = NO;
+	if (_isOpen) {
+		fits_close_file(_fits, &_status);
+		_isOpen = NO;
 	}
 }
 
 - (FITSHDU *)mainHDU;
 {
-	if (!isOpen || [HDUs count] == 0) {
+	if (!_isOpen || [_HDUs count] == 0) {
 		return nil;
 	}
 	
-	return [HDUs objectAtIndex:0];
+	return [_HDUs objectAtIndex:0];
 }
 
 - (NSArray *)HDUs
 {
-	return [NSArray arrayWithArray:HDUs];
+	return [NSArray arrayWithArray:_HDUs];
 }
 
 - (NSInteger)countOfHDUs
 {
-	if (!isOpen) {
+	if (!_isOpen) {
 		return -1;
 	}
 	
-	return (NSInteger)[HDUs count];	
+	return (NSInteger)[_HDUs count];
 }
 
 - (FITSHDUType)typeOfHDUAtIndex:(NSUInteger)index
 {
-	if (!isOpen) {
+	if (!_isOpen) {
 		return FITSHDUTypeUndefined;
 	}
 	
-	NSAssert(index < [HDUs count], 
+	NSAssert(index < [_HDUs count],
 			 @"Index ouf bounds: index must be < %ld (is %ld)", 
-			 index, [HDUs count]);
+			 index, [_HDUs count]);
 	
-	return (FITSHDUType)[(FITSHDU *)[HDUs objectAtIndex:index] type];	
+	return (FITSHDUType)[(FITSHDU *)[_HDUs objectAtIndex:index] type];
 }
 
 #pragma mark - Header
@@ -217,10 +212,10 @@
 
     [self rawMoveToHDUAtIndex:index];
 		
-	FITSHeader *header = [(FITSHDU *)[HDUs objectAtIndex:index] header];
+	FITSHeader *header = [(FITSHDU *)[_HDUs objectAtIndex:index] header];
 	
 	int nkeys;
-	fits_get_hdrspace(fits, &nkeys, NULL, &status);
+	fits_get_hdrspace(_fits, &nkeys, NULL, &_status);
 	
 	char card[FLEN_CARD];
 	char key[FLEN_KEYWORD];
@@ -228,13 +223,13 @@
 	char comment[FLEN_COMMENT];
 	
 	for (int i = 0; i < nkeys; i++) {
-		fits_read_record(fits, i, card, &status);
+		fits_read_record(_fits, i, card, &_status);
 		
 		NSMutableString *tmp = [NSMutableString stringWithUTF8String:card];
 		CFStringTrimWhitespace((__bridge CFMutableStringRef)tmp);
 		NSString *r = [NSString stringWithUTF8String:card];
 		
-		fits_read_keyn(fits, i, key, value, comment, &status);
+		fits_read_keyn(_fits, i, key, value, comment, &_status);
 		NSString *k = [NSString stringWithUTF8String:key];
 		NSString *v = [NSString stringWithUTF8String:value];
 		NSString *c = [NSString stringWithUTF8String:comment];
@@ -253,7 +248,7 @@
 {
 	__block BOOL success = NO;
 	
-	dispatch_sync(serialQueue, ^{
+	dispatch_sync(_serialQueue, ^{
         success = [self rawLoadHeaderAtIndex:index];
 	});
 	
@@ -262,7 +257,7 @@
 
 - (void)asyncLoadHeaderOfHDUAtIndex:(NSUInteger)index onCompletion:(dispatch_block_t)block
 {
-	dispatch_async(serialQueue, ^{
+	dispatch_async(_serialQueue, ^{
         [self rawLoadHeaderAtIndex:index];
 		dispatch_async(dispatch_get_main_queue(), ^{
 			block();
@@ -280,7 +275,7 @@
 	
     [self rawMoveToHDUAtIndex:index];
 	
-    FITSImage *img = [(FITSHDU *)[HDUs objectAtIndex:index] image];
+    FITSImage *img = [(FITSHDU *)[_HDUs objectAtIndex:index] image];
     
     if (!img.isLoaded) {		
         long fpixel[] = {1, 1};        
@@ -289,9 +284,9 @@
 				
 		imageArray = malloc(sizeof(double)*numPixels);		
 		
-		fits_read_pix(fits, TDOUBLE, fpixel, numPixels, NULL, imageArray, NULL, &status);
+		fits_read_pix(_fits, TDOUBLE, fpixel, numPixels, NULL, imageArray, NULL, &_status);
 		
-        BOOL success = (status == 0);
+        BOOL success = (_status == 0);
         if (success) {
             [img setImageData:imageArray];
         }
@@ -308,7 +303,7 @@
 {
 	__block BOOL success = NO;
 	
-	dispatch_sync(serialQueue, ^{
+	dispatch_sync(_serialQueue, ^{
         success = [self rawLoadImageAtIndex:index];
 	});
 	
@@ -317,12 +312,14 @@
 
 - (void)asyncLoadImageOfHDUAtIndex:(NSUInteger)index onCompletion:(dispatch_block_t)block
 {
-	dispatch_async(serialQueue, ^{
+	dispatch_async(_serialQueue, ^{
         [self rawLoadImageAtIndex:index];
-		dispatch_async(dispatch_get_main_queue(), ^{
-			block();
-		});
-	});    
+		if (block) {
+			dispatch_async(dispatch_get_main_queue(), ^{
+				block();
+			});
+		}
+	});
 }
 
 
@@ -332,9 +329,9 @@
 {	
 	__block int type = FITSHDUTypeUndefined;
 	
-	dispatch_sync(serialQueue, ^{
-		fits_movabs_hdu(fits, (int)index+1, NULL, &status);
-		fits_get_hdu_type(fits, &type, &status);
+	dispatch_sync(_serialQueue, ^{
+		fits_movabs_hdu(_fits, (int)index+1, NULL, &_status);
+		fits_get_hdu_type(_fits, &type, &_status);
 	});
 	
 	return type;
@@ -342,7 +339,7 @@
 
 - (void)rawMoveToHDUAtIndex:(NSUInteger)index
 {	
-	fits_movabs_hdu(fits, (int)index+1, NULL, &status);
+	fits_movabs_hdu(_fits, (int)index+1, NULL, &_status);
 }
 
 + (FITSSize)fitsFile:(fitsfile *)fits HDUImageSizeAtIndex:(NSUInteger)index
@@ -387,16 +384,16 @@
 	__block FITSImageType imgBitpix = FITSImageTypeUndefined;
 	__block FITSSize imgSize = FITSMakeZeroSize();
 	
-	dispatch_sync(serialQueue, ^{
-		fits_get_img_type(fits, &imgBitpix, &status);
+	dispatch_sync(_serialQueue, ^{
+		fits_get_img_type(_fits, &imgBitpix, &_status);
 		
 		int naxis;
-		fits_get_img_dim(fits, &naxis, &status);
+		fits_get_img_dim(_fits, &naxis, &_status);
  		
-		if (status == 0) {
+		if (_status == 0) {
 			int maxdim = naxis;
 			long naxes[naxis];
-			fits_get_img_size(fits, maxdim, naxes, &status);
+			fits_get_img_size(_fits, maxdim, naxes, &_status);
 			
 			if (maxdim == 1) {
 				imgSize = FITSMakeSize(naxes[0], 0, 0);

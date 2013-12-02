@@ -16,10 +16,7 @@
 typedef void(^FITSImageBlock_t)(FITSImage *newImage);
 typedef void(^FITSImageScalingBlock_t)(double progress);
 
-@interface FITSImage : NSObject {
-@private	
-	dispatch_queue_t processingQueue;
-}
+@interface FITSImage : NSObject 
 
 @property(nonatomic, assign, readonly, getter=isLoaded) BOOL loaded;
 @property(nonatomic, assign, readonly) FITSImageType type;

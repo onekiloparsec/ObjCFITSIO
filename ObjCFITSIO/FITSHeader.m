@@ -13,15 +13,11 @@
 
 @implementation FITSHeader
 
-@synthesize loaded;
-@synthesize HDUIndex;
-@synthesize fitsHDU;
-
 - (id)init
 {
 	self = [super init];
 	if (self) {
-		lines = [[NSMutableArray alloc] init];
+		_lines = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -44,22 +40,22 @@
 {
 	NSAssert(k, @"Key cannot be nil");
 	FITSHeaderLine *headerLine = [FITSHeaderLine headerLineWithKey:k value:v comment:c raw:r];
-	[lines addObject:headerLine];
+	[_lines addObject:headerLine];
 }
 
 - (NSUInteger)countOfLines
 {
-	return [lines count];
+	return [_lines count];
 }
 
 - (FITSHeaderLine *)lineAtIndex:(NSInteger)index
 {
-	return [lines objectAtIndex:index];
+	return [_lines objectAtIndex:index];
 }
 
 - (NSArray *)lines
 {
-	return [NSArray arrayWithArray:lines];
+	return [NSArray arrayWithArray:_lines];
 }
 
 - (NSString *)stringValueForKey:(NSString *)key
@@ -68,7 +64,7 @@
 	NSAssert([key length], @"Key cannot be empty.");
 
 	__block NSString *answer = nil;
-	NSArray *tmp = [NSArray arrayWithArray:lines];
+	NSArray *tmp = [NSArray arrayWithArray:_lines];
 	
 	[tmp enumerateObjectsUsingBlock:^(FITSHeaderLine *line, NSUInteger idx, BOOL *stop) {
 		if ([[line whiteSpaceTrimmedKey] isEqualToString:key]) {

@@ -8,14 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FITSHeaderLine : NSObject {
-@private
-	NSString *key;
-	NSString *value;
-	NSString *comment;
-	NSString *rawLine;
-	BOOL showRaw;
-}
+@interface FITSHeaderLine : NSObject 
 
 @property(nonatomic, copy, readonly) NSString *key;
 @property(nonatomic, copy, readonly) NSString *value;

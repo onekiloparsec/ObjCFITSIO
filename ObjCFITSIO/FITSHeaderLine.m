@@ -11,20 +11,14 @@
 
 @implementation FITSHeaderLine
 
-@synthesize key;
-@synthesize value;
-@synthesize comment;
-@synthesize rawLine;
-@synthesize showRaw;
-
 - (id)initWithKey:(NSString *)k value:(NSString *)v comment:(NSString *)c raw:(NSString *)r
 {
 	self = [super init];
 	if (self) {
-		key = [k copy];
-		value = [v copy];
-		comment = [c copy];
-		rawLine = [r copy];
+		_key = [k copy];
+		_value = [v copy];
+		_comment = [c copy];
+		_rawLine = [r copy];
 	}
 	return self;
 }

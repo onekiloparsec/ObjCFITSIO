@@ -13,20 +13,18 @@
 
 @implementation FITSSpectrum
 
-@synthesize originalImage;
-
 - (id)initWithHeader:(FITSHeader *)h dataPoints:(NSArray *)p
 {
 	self = [super init];
 	if (self) {
-		points = p;
+		_points = p;
 		NSString *s;
 		s = [h stringValueForKey:@"CRVAL1"];
-		CRVAL1 = (s == nil) ? 0.0 : atof([s UTF8String]);
+		_CRVAL1 = (s == nil) ? 0.0 : atof([s UTF8String]);
 		s = [h stringValueForKey:@"CRPIX1"];
-		CRPIX1 = (s == nil) ? 0.0 : atof([s UTF8String]);
+		_CRPIX1 = (s == nil) ? 0.0 : atof([s UTF8String]);
 		s = [h stringValueForKey:@"CDELT1"];
-		CDELT1 = (s == nil) ? 0.0 : atof([s UTF8String]);
+		_CDELT1 = (s == nil) ? 0.0 : atof([s UTF8String]);
 	}
 	return self;
 }
@@ -38,39 +36,39 @@
 
 - (NSUInteger)numberOfPoints
 {
-	return [points count];
+	return [_points count];
 }
 
 - (CGFloat)deltaXWithUnits:(FITSSpectrumXUnits)u
 {
-	return CDELT1;
+	return _CDELT1;
 }
 
 - (CGFloat)firstXValueWithUnits:(FITSSpectrumXUnits)u
 {
-	return (CRVAL1 + CDELT1 * (1 - CRPIX1));
+	return (_CRVAL1 + _CDELT1 * (1 - _CRPIX1));
 }
 
 - (CGFloat)lastXValueWithUnits:(FITSSpectrumXUnits)u
 {
-	return (CRVAL1 + CDELT1 * ([self numberOfPoints] - CRPIX1));	
+	return (_CRVAL1 + _CDELT1 * ([self numberOfPoints] - _CRPIX1));
 }
 
 - (CGFloat)minimumYValueWithUnits:(FITSSpectrumYUnits)u
 {
-	NSArray *sortedPoints = [points sortedArrayUsingSelector:@selector(compare:)];
+	NSArray *sortedPoints = [_points sortedArrayUsingSelector:@selector(compare:)];
 	return [[sortedPoints objectAtIndex:0] doubleValue];
 }
 
 - (CGFloat)maximumYValueWithUnits:(FITSSpectrumYUnits)u
 {
-	NSArray *sortedPoints = [points sortedArrayUsingSelector:@selector(compare:)];
+	NSArray *sortedPoints = [_points sortedArrayUsingSelector:@selector(compare:)];
 	return [[sortedPoints lastObject] doubleValue];	
 }
 
 - (NSArray *)rawPoints
 {
-	return points;
+	return _points;
 }
 
 - (FITSSpectrumXUnits)rawXUnits
@@ -85,7 +83,7 @@
 
 - (NSArray *)pointsWithUnits:(FITSSpectrumYUnits)u
 {
-	return points;
+	return _points;
 }
 
 @end
