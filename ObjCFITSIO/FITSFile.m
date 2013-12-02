@@ -267,9 +267,9 @@
 
 
 
-#pragma mark - Image
+#pragma mark - Data
 
-- (BOOL)rawLoadImageAtIndex:(NSUInteger)index
+- (BOOL)rawLoadDataAtIndex:(NSUInteger)index
 {	
 	DebugLog(@"Loading FITS Image at index %lu...", index);
 	
@@ -299,21 +299,21 @@
 	return img.isLoaded;    
 }
 
-- (BOOL)syncLoadImageOfHDUAtIndex:(NSUInteger)index
+- (BOOL)syncLoadDataOfHDUAtIndex:(NSUInteger)index
 {
 	__block BOOL success = NO;
 	
 	dispatch_sync(_serialQueue, ^{
-        success = [self rawLoadImageAtIndex:index];
+        success = [self rawLoadDataAtIndex:index];
 	});
 	
 	return success;
 }
 
-- (void)asyncLoadImageOfHDUAtIndex:(NSUInteger)index onCompletion:(dispatch_block_t)block
+- (void)asyncLoadDataOfHDUAtIndex:(NSUInteger)index onCompletion:(dispatch_block_t)block
 {
 	dispatch_async(_serialQueue, ^{
-        [self rawLoadImageAtIndex:index];
+        [self rawLoadDataAtIndex:index];
 		if (block) {
 			dispatch_async(dispatch_get_main_queue(), ^{
 				block();

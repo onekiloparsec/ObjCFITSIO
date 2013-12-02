@@ -32,9 +32,9 @@
 - (FITSHDUType)typeOfHDUAtIndex:(NSUInteger)index;
 
 - (void)asyncLoadHeaderOfHDUAtIndex:(NSUInteger)index onCompletion:(dispatch_block_t)block;
-- (void)asyncLoadImageOfHDUAtIndex:(NSUInteger)index onCompletion:(dispatch_block_t)block;
+- (void)asyncLoadDataOfHDUAtIndex:(NSUInteger)index onCompletion:(dispatch_block_t)block;
 
 - (BOOL)syncLoadHeaderOfHDUAtIndex:(NSUInteger)index;
-- (BOOL)syncLoadImageOfHDUAtIndex:(NSUInteger)index;
+- (BOOL)syncLoadDataOfHDUAtIndex:(NSUInteger)index;
 
 @end
