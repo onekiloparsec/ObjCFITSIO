@@ -1,9 +1,10 @@
 Pod::Spec.new do |s|
   s.name         			= "ObjCFITSIO"
-  s.version      			= "0.0.1"
+  s.version      			= "0.0.2"
   s.summary      			= "ObjCFITSIO is an asynchronous Objective-C wrapper around cfitsio bringing object concepts to the famous FITS file library."
   s.description  = <<-DESC
                    ObjCFITSIO has been started in support of the development of an OSX app called "Stif" which is intended to be a kind of iTunes-for-FITS files.
+                   It is also used in the 3rd version of the FITS files QuickLook OSX plugin QLFits3, open source on github.
                    It is voluntarily asynchronous by design (since operations on large images can be long), and use Grand Central Dispatch to achieve so.
                    Ultimately, I would like to see it supporting most of the APIs of cfitsio. But at start, it is developed along the Stif app.
                    DESC
