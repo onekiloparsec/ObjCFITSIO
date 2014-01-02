@@ -173,8 +173,15 @@
 	if (!_isOpen || [_HDUs count] == 0) {
 		return nil;
 	}
-	
 	return [_HDUs objectAtIndex:0];
+}
+
+- (FITSHDU *)HDUAtIndex:(NSUInteger)index;
+{
+	if (!_isOpen || index >= [_HDUs count]) {
+		return nil;
+	}
+	return [_HDUs objectAtIndex:index];
 }
 
 - (NSArray *)HDUs
@@ -265,7 +272,10 @@
 	});    	
 }
 
-
+- (BOOL)syncLoadHeaderOfMainHDU
+{
+	return [self rawLoadHeaderAtIndex:0];
+}
 
 #pragma mark - Data
 

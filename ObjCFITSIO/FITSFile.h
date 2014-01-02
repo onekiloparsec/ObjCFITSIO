@@ -26,6 +26,7 @@
 - (void)close;
 
 - (FITSHDU *)mainHDU;
+- (FITSHDU *)HDUAtIndex:(NSUInteger)index;
 - (NSArray *)HDUs;
 
 - (NSInteger)countOfHDUs;
@@ -36,5 +37,7 @@
 
 - (BOOL)syncLoadHeaderOfHDUAtIndex:(NSUInteger)index;
 - (BOOL)syncLoadDataOfHDUAtIndex:(NSUInteger)index;
+
+- (BOOL)syncLoadHeaderOfMainHDU;
 
 @end
