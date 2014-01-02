@@ -55,12 +55,12 @@
 	fits_get_num_hdus(fits, &HDUCount, &status);
 	
 	int numImg = 0;
-	
+
 	for (int index = 0; index < HDUCount; index++) {
 		fits_movabs_hdu(fits, (int)index+1, NULL, &status);
 		int type = FITSHDUTypeUndefined;		
 		fits_get_hdu_type(fits, &type, &status);
-				
+
 		if (type == FITSHDUTypeImage) {
 			FITSSize fitsSize = [FITSFile fitsFile:fits HDUImageSizeAtIndex:index];
 			[titles addObject:[NSString FITSHDUTypeString:type]];
@@ -71,7 +71,7 @@
 	
 	NSMutableString *summary = [NSMutableString string];
 	if (numImg == 1) {
-		[summary appendString:@"image"];
+		[summary appendString:@"1 image"];
 	}
 	else if (numImg > 1) {
 		[summary appendFormat:@"%d images", numImg];
