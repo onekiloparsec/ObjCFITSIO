@@ -6,7 +6,6 @@
 //  Released under GPLv2 by onekiloparsec (Cédric Foellmi)
 //
 
-#import <AppKit/AppKit.h>
 #import "FITSConstants.h"
 
 @class FITSHeader;
