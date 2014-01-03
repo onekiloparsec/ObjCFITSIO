@@ -12,7 +12,6 @@ Pod::Spec.new do |s|
   s.license      			= { :type => 'GPLv2', :file => 'LICENSE' }
   s.author       			= { "Cédric Foellmi" => "cedric@onekilopars.ec" }
   s.osx.deployment_target 	= '10.8'
-  s.ios.deployment_target 	= '6.1'
   s.source       			= { :git => "https://github.com/onekiloparsec/ObjCFITSIO.git", :tag => "#{s.version}" }
   s.source_files 			= 'ObjCFITSIO/**/*.{h,m,c}', 'Utilities/**/*.{h,m,c}', 'cfitsio/**/*.{h,m,c}'
   s.public_header_files 	= 'ObjCFITSIO/*.h'
@@ -20,7 +19,6 @@ Pod::Spec.new do |s|
   s.vendored_libraries 	 	= 'cfitsio/libcfitsio.a'
   s.dependency				'RegexKitLite', '~> 4.0'
   s.osx.framework   		= 'AppKit'
-  s.ios.framework   		= 'UIKit'
   s.requires_arc 			= true
 end
 
