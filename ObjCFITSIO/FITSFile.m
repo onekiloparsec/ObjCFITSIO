@@ -63,9 +63,11 @@
 
 		if (type == FITSHDUTypeImage) {
 			FITSSize fitsSize = [FITSFile fitsFile:fits HDUImageSizeAtIndex:index];
-			[titles addObject:[NSString FITSHDUTypeString:type]];
-			[subtitles addObject:NSStringFromFITSSize(fitsSize)];
-			numImg ++;
+			if (!FITSIsEmptySize(fitsSize)) {
+				[titles addObject:[NSString FITSHDUTypeString:type]];
+				[subtitles addObject:NSStringFromFITSSize(fitsSize)];
+				numImg ++;
+			}
 		}
 	}
 	

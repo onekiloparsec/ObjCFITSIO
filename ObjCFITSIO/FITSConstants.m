@@ -8,6 +8,11 @@
 
 #import "FITSConstants.h"
 
+BOOL FITSIsEmptySize(FITSSize inputSize)
+{
+	return inputSize.nx == 0 && inputSize.ny == 0 && inputSize.nz == 0;
+}
+
 FITSSize FITSMakeSize(CGFloat nx, CGFloat ny, CGFloat nz) 
 {
     FITSSize s;

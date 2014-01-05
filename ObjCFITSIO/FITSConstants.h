@@ -15,6 +15,7 @@ typedef struct {
 	CGFloat nz;	
 } FITSSize;
 
+BOOL FITSIsEmptySize(FITSSize inputSize);
 FITSSize FITSMakeSize(CGFloat nx, CGFloat ny, CGFloat nz);
 FITSSize FITSMakeZeroSize(void);
 NSString * NSStringFromFITSSize(FITSSize size);
