@@ -66,11 +66,12 @@
 	__block NSString *answer = nil;
 	NSArray *tmp = [NSArray arrayWithArray:_lines];
 	
-	[tmp enumerateObjectsUsingBlock:^(FITSHeaderLine *line, NSUInteger idx, BOOL *stop) {
-		if ([[line whiteSpaceTrimmedKey] isEqualToString:key]) {
-			answer = line.value;
-			*stop = YES;
-		}
+	[tmp enumerateObjectsWithOptions:NSEnumerationConcurrent
+						  usingBlock:^(FITSHeaderLine *line, NSUInteger idx, BOOL *stop) {
+							  if ([[line whiteSpaceTrimmedKey] isEqualToString:key]) {
+								  answer = line.value;
+								  *stop = YES;
+							  }
 	}];
 	
 	return answer;
