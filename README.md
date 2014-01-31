@@ -6,3 +6,7 @@ ObjCFITSIO is an asynchronous Objective-C wrapper around [cfitsio](http://heasar
 <a href="https://flattr.com/submit/auto?user_id=onekiloparsec&url=https%3A%2F%2Fgithub.com%2Fonekiloparsec%2FObjCFITSIO" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a>
 
 ObjCFITSIO's development is closely related to that of 'Stif', an iTunes-for-FITS-file app. More about it on [onekilopars.ec website](http://onekilopars.ec/stif/index.html).
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/onekiloparsec/objcfitsio/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
