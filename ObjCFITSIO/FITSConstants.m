@@ -33,7 +33,24 @@ FITSSize FITSMakeZeroSize()
 
 NSString * NSStringFromFITSSize(FITSSize size) 
 {
-	return [NSString stringWithFormat:@"[%.0f:%.0f:%.0f]", size.nx, size.ny, size.nz];
+    NSMutableString *s = [NSMutableString stringWithString:@"["];
+    if (size.nx || size.ny || size.nz) {
+        [s appendFormat:@"%.0f", size.nx];
+    }
+    if (size.ny || size.nz) {
+        if ([s length] > 1) {
+            [s appendString:@":"];
+        }
+        [s appendFormat:@"%.0f", size.ny];
+    }
+    if (size.nz) {
+        if ([s length] > 2) {
+            [s appendString:@":"];
+        }
+        [s appendFormat:@"%.0f", size.nz];
+    }
+    [s appendString:@"]"];
+	return [s copy];
 }
 
 
