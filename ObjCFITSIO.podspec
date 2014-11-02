@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         			= "ObjCFITSIO"
-  s.version      			= "0.2.3"
+  s.version      			= "0.2.4"
   s.summary      			= "ObjCFITSIO is an asynchronous Objective-C wrapper around cfitsio bringing object concepts to the famous FITS file library."
   s.description  = <<-DESC
                    ObjCFITSIO has been started in support of the development of an OSX app which is intended to be a kind of iTunes-for-FITS files, currently ongoing at onekiloparsec's headquarters.
