@@ -7,20 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6317915114B4337B00207B0A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317915014B4337B00207B0A /* Cocoa.framework */; };
 		6317915B14B4337B00207B0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6317915914B4337B00207B0A /* InfoPlist.strings */; };
-		6317916714B4337B00207B0A /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317916614B4337B00207B0A /* SenTestingKit.framework */; };
-		6317916814B4337B00207B0A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317915014B4337B00207B0A /* Cocoa.framework */; };
-		6317916B14B4337B00207B0A /* ObjCFITSIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317914D14B4337B00207B0A /* ObjCFITSIO.framework */; };
-		6317917114B4337B00207B0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6317916F14B4337B00207B0A /* InfoPlist.strings */; };
-		6317917414B4337B00207B0A /* ObjCFITSIOTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317917314B4337B00207B0A /* ObjCFITSIOTests.m */; };
 		6317918714B433C500207B0A /* FITSFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 6317918114B433C500207B0A /* FITSFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6317918814B433C500207B0A /* FITSFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317918214B433C500207B0A /* FITSFile.m */; };
 		6317918914B433C500207B0A /* FITSHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6317918314B433C500207B0A /* FITSHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6317918A14B433C500207B0A /* FITSHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317918414B433C500207B0A /* FITSHeader.m */; };
 		6317918B14B433C500207B0A /* FITSHeaderLine.h in Headers */ = {isa = PBXBuildFile; fileRef = 6317918514B433C500207B0A /* FITSHeaderLine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6317918C14B433C500207B0A /* FITSHeaderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 6317918614B433C500207B0A /* FITSHeaderLine.m */; };
-		63430390152B88E30040AB4E /* DebugLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 637FBA6714B88279007582F8 /* DebugLog.m */; };
 		637FBA5D14B790A9007582F8 /* FITSHDU.h in Headers */ = {isa = PBXBuildFile; fileRef = 637FBA5B14B790A9007582F8 /* FITSHDU.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		637FBA5E14B790A9007582F8 /* FITSHDU.m in Sources */ = {isa = PBXBuildFile; fileRef = 637FBA5C14B790A9007582F8 /* FITSHDU.m */; };
 		637FBA6214B79163007582F8 /* FITSConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 637FBA6014B79163007582F8 /* FITSConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -63,17 +56,8 @@
 		82EA2484156FC26B00C93C20 /* FITSImage+Scaling.h in Headers */ = {isa = PBXBuildFile; fileRef = 82EA2482156FC26B00C93C20 /* FITSImage+Scaling.h */; };
 		82EA2489156FD58600C93C20 /* NSArray+NumericalOperations.h in Headers */ = {isa = PBXBuildFile; fileRef = 82EA2487156FD58500C93C20 /* NSArray+NumericalOperations.h */; };
 		82EA248A156FD58600C93C20 /* NSArray+NumericalOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 82EA2488156FD58500C93C20 /* NSArray+NumericalOperations.m */; };
+		9F965E3F1A0622F2009A908E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6317915014B4337B00207B0A /* Cocoa.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		6317916914B4337B00207B0A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6317914314B4337A00207B0A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6317914C14B4337B00207B0A;
-			remoteInfo = ObjCFITSIO;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6317914D14B4337B00207B0A /* ObjCFITSIO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjCFITSIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,12 +68,7 @@
 		6317915814B4337B00207B0A /* ObjCFITSIO-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjCFITSIO-Info.plist"; sourceTree = "<group>"; };
 		6317915A14B4337B00207B0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6317915C14B4337B00207B0A /* ObjCFITSIO-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjCFITSIO-Prefix.pch"; sourceTree = "<group>"; };
-		6317916514B4337B00207B0A /* ObjCFITSIOTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjCFITSIOTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6317916614B4337B00207B0A /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		6317916E14B4337B00207B0A /* ObjCFITSIOTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjCFITSIOTests-Info.plist"; sourceTree = "<group>"; };
-		6317917014B4337B00207B0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6317917214B4337B00207B0A /* ObjCFITSIOTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCFITSIOTests.h; sourceTree = "<group>"; };
-		6317917314B4337B00207B0A /* ObjCFITSIOTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCFITSIOTests.m; sourceTree = "<group>"; };
 		6317918114B433C500207B0A /* FITSFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITSFile.h; sourceTree = "<group>"; };
 		6317918214B433C500207B0A /* FITSFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FITSFile.m; sourceTree = "<group>"; };
 		6317918314B433C500207B0A /* FITSHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FITSHeader.h; sourceTree = "<group>"; };
@@ -148,19 +127,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F965E3F1A0622F2009A908E /* Cocoa.framework in Frameworks */,
 				82101E2F1510CE7500195099 /* libicucore.dylib in Frameworks */,
-				6317915114B4337B00207B0A /* Cocoa.framework in Frameworks */,
 				63C5080614B4351C00852521 /* libcfitsio.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6317916114B4337B00207B0A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6317916714B4337B00207B0A /* SenTestingKit.framework in Frameworks */,
-				6317916814B4337B00207B0A /* Cocoa.framework in Frameworks */,
-				6317916B14B4337B00207B0A /* ObjCFITSIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				6317915614B4337B00207B0A /* ObjCFITSIO */,
-				6317916C14B4337B00207B0A /* ObjCFITSIOTests */,
 				63C507DC14B4351C00852521 /* cfitsio */,
 				6317915714B4337B00207B0A /* Supporting Files */,
 				6317914F14B4337B00207B0A /* Frameworks */,
@@ -183,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				6317914D14B4337B00207B0A /* ObjCFITSIO.framework */,
-				6317916514B4337B00207B0A /* ObjCFITSIOTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,25 +218,6 @@
 			);
 			name = "Supporting Files";
 			path = ObjCFITSIO;
-			sourceTree = "<group>";
-		};
-		6317916C14B4337B00207B0A /* ObjCFITSIOTests */ = {
-			isa = PBXGroup;
-			children = (
-				6317917214B4337B00207B0A /* ObjCFITSIOTests.h */,
-				6317917314B4337B00207B0A /* ObjCFITSIOTests.m */,
-				6317916D14B4337B00207B0A /* Supporting Files */,
-			);
-			path = ObjCFITSIOTests;
-			sourceTree = "<group>";
-		};
-		6317916D14B4337B00207B0A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6317916E14B4337B00207B0A /* ObjCFITSIOTests-Info.plist */,
-				6317916F14B4337B00207B0A /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		63C507DC14B4351C00852521 /* cfitsio */ = {
@@ -370,25 +318,6 @@
 			productReference = 6317914D14B4337B00207B0A /* ObjCFITSIO.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6317916414B4337B00207B0A /* ObjCFITSIOTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6317917A14B4337B00207B0A /* Build configuration list for PBXNativeTarget "ObjCFITSIOTests" */;
-			buildPhases = (
-				6317916014B4337B00207B0A /* Sources */,
-				6317916114B4337B00207B0A /* Frameworks */,
-				6317916214B4337B00207B0A /* Resources */,
-				6317916314B4337B00207B0A /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6317916A14B4337B00207B0A /* PBXTargetDependency */,
-			);
-			name = ObjCFITSIOTests;
-			productName = ObjCFITSIOTests;
-			productReference = 6317916514B4337B00207B0A /* ObjCFITSIOTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -412,7 +341,6 @@
 			projectRoot = "";
 			targets = (
 				6317914C14B4337B00207B0A /* ObjCFITSIO */,
-				6317916414B4337B00207B0A /* ObjCFITSIOTests */,
 			);
 		};
 /* End PBXProject section */
@@ -426,31 +354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6317916214B4337B00207B0A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6317917114B4337B00207B0A /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		6317916314B4337B00207B0A /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6317914814B4337B00207B0A /* Sources */ = {
@@ -470,38 +374,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6317916014B4337B00207B0A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6317917414B4337B00207B0A /* ObjCFITSIOTests.m in Sources */,
-				63430390152B88E30040AB4E /* DebugLog.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6317916A14B4337B00207B0A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6317914C14B4337B00207B0A /* ObjCFITSIO */;
-			targetProxy = 6317916914B4337B00207B0A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6317915914B4337B00207B0A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				6317915A14B4337B00207B0A /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6317916F14B4337B00207B0A /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6317917014B4337B00207B0A /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -626,32 +505,6 @@
 			};
 			name = Release;
 		};
-		6317917B14B4337B00207B0A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ObjCFITSIO/ObjCFITSIO-Prefix.pch";
-				INFOPLIST_FILE = "ObjCFITSIOTests/ObjCFITSIOTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		6317917C14B4337B00207B0A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ObjCFITSIO/ObjCFITSIO-Prefix.pch";
-				INFOPLIST_FILE = "ObjCFITSIOTests/ObjCFITSIOTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -669,15 +522,6 @@
 			buildConfigurations = (
 				6317917814B4337B00207B0A /* Debug */,
 				6317917914B4337B00207B0A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6317917A14B4337B00207B0A /* Build configuration list for PBXNativeTarget "ObjCFITSIOTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6317917B14B4337B00207B0A /* Debug */,
-				6317917C14B4337B00207B0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

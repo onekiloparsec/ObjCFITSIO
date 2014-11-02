@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         			= "ObjCFITSIO"
-  s.version      			= "0.2.0"
+  s.version      			= "0.2.1"
   s.summary      			= "ObjCFITSIO is an asynchronous Objective-C wrapper around cfitsio bringing object concepts to the famous FITS file library."
   s.description  = <<-DESC
                    ObjCFITSIO has been started in support of the development of an OSX app called "Stif" which is intended to be a kind of iTunes-for-FITS files.
@@ -14,11 +14,11 @@ Pod::Spec.new do |s|
   s.osx.deployment_target 	= '10.8'
   s.source       			= { :git => "https://github.com/onekiloparsec/ObjCFITSIO.git", :tag => "#{s.version}" }
   s.source_files 			= 'ObjCFITSIO/**/*.{h,m,c}', 'Utilities/**/*.{h,m,c}', 'cfitsio/**/*.{h,m,c}'
-  s.public_header_files 	= 'ObjCFITSIO/*.h'
+  s.public_header_files 	    = 'ObjCFITSIO/*.h, cfitsio/fitsio.h'
   s.private_header_files 	= 'cfitsio/.{h}'
   s.vendored_libraries 	 	= 'cfitsio/libcfitsio.a'
   s.dependency				'RegexKitLite', '~> 4.0'
-  s.osx.framework   		= 'AppKit'
+  s.osx.framework   		    = 'Foundation'
   s.requires_arc 			= true
 end
 
