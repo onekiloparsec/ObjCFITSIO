@@ -471,12 +471,13 @@
 					"$(PROJECT_DIR)/ObjCFITSIO/**",
 				);
 				INFOPLIST_FILE = "ObjCFITSIO/ObjCFITSIO-Info.plist";
-				INSTALL_PATH = "@rpath";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/cfitsio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -495,12 +496,13 @@
 					"$(PROJECT_DIR)/ObjCFITSIO/**",
 				);
 				INFOPLIST_FILE = "ObjCFITSIO/ObjCFITSIO-Info.plist";
-				INSTALL_PATH = "@rpath";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/cfitsio\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
