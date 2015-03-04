@@ -125,7 +125,7 @@
 	[self close];
 }
 
-- (void)open
+- (BOOL)open
 {
 	if (!_isOpen) {
 		DebugLog(@"Opening FITS file at %@", [_fileURL path]);
@@ -136,7 +136,7 @@
 		
 		if (_status) {
 			NSLog(@"Error reading FITS file at URL %@", _fileURL);
-			return;
+			return NO;
 		}
 
 		_isOpen = YES;
@@ -160,6 +160,8 @@
 			[_HDUs addObject:HDU];
 		}
 	}
+    
+    return _isOpen;
 }
 
 - (void)close
