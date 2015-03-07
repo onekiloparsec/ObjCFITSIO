@@ -25,7 +25,7 @@
 
 @interface FITSFile () {
 	fitsfile *_fits;
-	__block int _status;
+	CFITSIO_STATUS _status;
 	BOOL _isOpen;
 	NSMutableArray *_HDUs;
 	
@@ -102,7 +102,7 @@
 	self = [super init];
 	if (self) {
 		_fileURL = [path copy];
-		_status = 0;
+        _status = 0; // Must be initialised, according to documentation.
 		_isOpen = NO;
 		_HDUs = [[NSMutableArray alloc] init];
 		_serialQueue = dispatch_queue_create("com.onekiloparsec.ObjCFITSIO.FITSFile.serialQueue", DISPATCH_QUEUE_SERIAL);
@@ -120,10 +120,12 @@
 	[self close];
 }
 
-- (int)open
+- (CFITSIO_STATUS)open
 {
 	if (!_isOpen) {
 		DebugLog(@"Opening FITS file at %@", [_fileURL path]);
+        
+        _status = CFITSIO_STATUS_OK; // Always put it to OK before using it, following documentation.
         fits_open_file(&_fits, [[_fileURL path] UTF8String], READONLY, &_status);
 		
 		if (_status) {

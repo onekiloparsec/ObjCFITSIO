@@ -22,7 +22,7 @@
 + (NSDictionary *)FITSFileShortSummaryWithURL:(NSURL *)path;
 + (FITSSize)fitsFile:(fitsfile *)fits HDUImageSizeAtIndex:(NSUInteger)index;
 
-- (int)open;
+- (CFITSIO_STATUS)open;
 - (void)close;
 
 - (FITSHDU *)mainHDU;
