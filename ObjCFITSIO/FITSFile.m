@@ -88,12 +88,7 @@
 		[summary appendString:@"s"];
 	}
 	
-	NSDictionary *FITSsummary = [NSDictionary dictionaryWithObjectsAndKeys:
-								 titles, @"titles",
-								 subtitles, @"subtitles",
-								 summary, @"summary", 
-								 nil];
-	
+    NSDictionary *FITSsummary = @{@"titles": titles, @"subtitles": subtitles, @"summary": summary};
 	return FITSsummary;
 }
 
@@ -125,27 +120,23 @@
 	[self close];
 }
 
-- (BOOL)open
+- (int)open
 {
 	if (!_isOpen) {
 		DebugLog(@"Opening FITS file at %@", [_fileURL path]);
-		
-		dispatch_sync(_serialQueue, ^{
-			fits_open_file(&_fits, [[_fileURL path] UTF8String], READONLY, &_status);
-		});	
+        fits_open_file(&_fits, [[_fileURL path] UTF8String], READONLY, &_status);
 		
 		if (_status) {
-			NSLog(@"Error reading FITS file at URL %@", _fileURL);
-			return NO;
+			NSLog(@"Error opening FITS file at URL %@", _fileURL);
+			return _status;
 		}
-
-		_isOpen = YES;
 
 		int HDUCount = 0;
 		fits_get_num_hdus(_fits, &HDUCount, &_status);
-		
 		DebugLog(@"Number of HDUs: %d", HDUCount);
 		
+        _isOpen = YES;
+
 		for (NSUInteger i = 0; i < HDUCount; i++) {
 			FITSHDU *HDU = [FITSHDU HDUAtIndex:i inFITSFile:self];
 			HDU.type = [self syncReadHDUTypeAtIndex:i];
@@ -161,7 +152,7 @@
 		}
 	}
     
-    return _isOpen;
+    return _status;
 }
 
 - (void)close
