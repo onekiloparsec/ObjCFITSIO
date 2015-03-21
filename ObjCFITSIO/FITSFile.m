@@ -25,6 +25,7 @@
 
 @interface FITSFile () {
 	fitsfile *_fits;
+    NSString *_tmpFilePath;
 	CFITSIO_STATUS _status;
 	BOOL _isOpen;
 	NSMutableArray *_HDUs;
@@ -80,6 +81,10 @@
 			}
 		}
 	}
+    
+    if ([filePath hasSuffix:tmpPath]) {
+        fits_delete_file(fits, &status);
+    }
 	
 	NSMutableString *summary = [NSMutableString string];
 	if (numImg == 1) {
@@ -152,6 +157,7 @@
 		}
 
 		int HDUCount = 0;
+        _status = CFITSIO_STATUS_OK;
 		fits_get_num_hdus(_fits, &HDUCount, &_status);
 		DebugLog(@"Number of HDUs: %d", HDUCount);
 		
@@ -244,6 +250,7 @@
 	FITSHeader *header = [(FITSHDU *)[_HDUs objectAtIndex:index] header];
 	
 	int nkeys;
+    _status = CFITSIO_STATUS_OK;
 	fits_get_hdrspace(_fits, &nkeys, NULL, &_status);
 	
 	char card[FLEN_CARD];
@@ -316,6 +323,7 @@
 				
 		imageArray = malloc(sizeof(double)*numPixels);		
 		
+        _status = CFITSIO_STATUS_OK;
 		fits_read_pix(_fits, TDOUBLE, fpixel, numPixels, NULL, imageArray, NULL, &_status);
 		
         BOOL success = (_status == 0);
@@ -362,6 +370,7 @@
 	__block int type = FITSHDUTypeUndefined;
 	
 	dispatch_sync(_serialQueue, ^{
+        _status = CFITSIO_STATUS_OK;
 		fits_movabs_hdu(_fits, (int)index+1, NULL, &_status);
 		fits_get_hdu_type(_fits, &type, &_status);
 	});
@@ -371,12 +380,13 @@
 
 - (void)rawMoveToHDUAtIndex:(NSUInteger)index
 {	
+    _status = CFITSIO_STATUS_OK;
 	fits_movabs_hdu(_fits, (int)index+1, NULL, &_status);
 }
 
 + (FITSSize)fitsFile:(fitsfile *)fits HDUImageSizeAtIndex:(NSUInteger)index
 {
-	int status = 0;
+    CFITSIO_STATUS status = CFITSIO_STATUS_OK;
 	fits_movabs_hdu(fits, (int)index+1, NULL, &status);
 
 	FITSSize imgSize = FITSMakeZeroSize();
@@ -417,6 +427,7 @@
 	__block FITSSize imgSize = FITSMakeZeroSize();
 	
 	dispatch_sync(_serialQueue, ^{
+        _status = CFITSIO_STATUS_OK;
 		fits_get_img_type(_fits, &imgBitpix, &_status);
 		
 		int naxis;
