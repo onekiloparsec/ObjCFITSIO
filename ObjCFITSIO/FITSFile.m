@@ -41,7 +41,17 @@
 + (NSDictionary *)FITSFileShortSummaryWithURL:(NSURL *)path
 {
 	fitsfile *fits;
-	int status = 0;
+	CFITSIO_STATUS status = CFITSIO_STATUS_OK;
+    
+    NSString *tmpPath = [NSString stringWithFormat:@"(!/tmp/QLFits3_CFITSIO_tmp_summary_%d.fits)", arc4random()];
+    
+    // cfitsio has troubles opening files with paths containing whitespaces.
+    // See http://heasarc.gsfc.nasa.gov/docs/software/fitsio/c/c_user/node90.html to workaround this.
+    NSMutableString *filePath = [[path path] mutableCopy];
+    if ([filePath containsString:@" "]) {
+        [filePath appendString:tmpPath];
+    }
+    
 	fits_open_file(&fits, [[path path] cStringUsingEncoding:NSASCIIStringEncoding], READONLY, &status);
 	
 	if (status) {
@@ -102,6 +112,7 @@
 	self = [super init];
 	if (self) {
 		_fileURL = [path copy];
+        _tmpFilePath = [NSString stringWithFormat:@"(!/tmp/QLFits3_CFITSIO_tmp_%d.fits)", arc4random()];
         _status = 0; // Must be initialised, according to documentation.
 		_isOpen = NO;
 		_HDUs = [[NSMutableArray alloc] init];
@@ -124,6 +135,13 @@
 {
 	if (!_isOpen) {
 		DebugLog(@"Opening FITS file at %@", [_fileURL path]);
+        
+        // cfitsio has troubles opening files with paths containing whitespaces.
+        // See http://heasarc.gsfc.nasa.gov/docs/software/fitsio/c/c_user/node90.html to workaround this.
+        NSMutableString *filePath = [[_fileURL path] mutableCopy];
+        if ([filePath containsString:@" "]) {
+            [filePath appendString:_tmpFilePath];
+        }
         
         _status = CFITSIO_STATUS_OK; // Always put it to OK before using it, following documentation.        
         fits_open_file(&_fits, [[_fileURL path] cStringUsingEncoding:NSASCIIStringEncoding], READONLY, &_status);
@@ -160,7 +178,14 @@
 - (void)close
 {
 	if (_isOpen) {
-		fits_close_file(_fits, &_status);
+        _status = CFITSIO_STATUS_OK;
+        
+        if ([[_fileURL path] containsString:@" "]) {
+            fits_delete_file(_fits, &_status);
+        }
+        else {
+            fits_close_file(_fits, &_status);
+        }
 		_isOpen = NO;
 	}
 }
