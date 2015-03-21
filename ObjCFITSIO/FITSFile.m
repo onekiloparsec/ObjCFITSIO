@@ -42,7 +42,7 @@
 {
 	fitsfile *fits;
 	int status = 0;
-	fits_open_file(&fits, [[path path] UTF8String], READONLY, &status);
+	fits_open_file(&fits, [[path path] cStringUsingEncoding:NSASCIIStringEncoding], READONLY, &status);
 	
 	if (status) {
 		return nil;
@@ -126,7 +126,7 @@
 		DebugLog(@"Opening FITS file at %@", [_fileURL path]);
         
         _status = CFITSIO_STATUS_OK; // Always put it to OK before using it, following documentation.        
-        fits_open_file(&_fits, [[_fileURL path] UTF8String], READONLY, &_status);
+        fits_open_file(&_fits, [[_fileURL path] cStringUsingEncoding:NSASCIIStringEncoding], READONLY, &_status);
 		
 		if (_status > 0) {
 			NSLog(@"Error status %d opening FITS file at path %@", _status, [_fileURL path]);
