@@ -129,7 +129,7 @@
         fits_open_file(&_fits, [[_fileURL path] UTF8String], READONLY, &_status);
 		
 		if (_status > 0) {
-			NSLog(@"Error status %d opening FITS file at URL %@", _status, _fileURL);
+			NSLog(@"Error status %d opening FITS file at path %@", _status, [_fileURL path]);
 			return _status;
 		}
 
