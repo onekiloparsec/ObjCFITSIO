@@ -12,11 +12,7 @@
 @class FITSHDU;
 @class FITSHeader;
 
-@interface FITSFile : NSObject {
-@private	
-	NSURL *_fileURL;
-	FITSHDU *_mainHDU;
-}
+@interface FITSFile : NSObject 
 
 + (FITSFile *)FITSFileWithURL:(NSURL *)path;
 + (NSDictionary *)FITSFileShortSummaryWithURL:(NSURL *)path;

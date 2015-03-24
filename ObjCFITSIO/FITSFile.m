@@ -24,10 +24,11 @@
 // This private iterface is kept here and not in a separate header, as it is relevant only here.
 
 @interface FITSFile () {
+    NSURL *_fileURL;
 	fitsfile *_fits;
-    NSString *_tmpFilePath;
 	CFITSIO_STATUS _status;
 	BOOL _isOpen;
+    FITSHDU *_mainHDU;
 	NSMutableArray *_HDUs;
 	
 	// A queue allows to dispatch work on multiple threads. 
@@ -39,21 +40,15 @@
 
 @implementation FITSFile
 
-+ (NSDictionary *)FITSFileShortSummaryWithURL:(NSURL *)path
++ (NSDictionary *)FITSFileShortSummaryWithURL:(NSURL *)URL
 {
 	fitsfile *fits;
 	CFITSIO_STATUS status = CFITSIO_STATUS_OK;
-    
-    NSString *tmpPath = [NSString stringWithFormat:@"(!/tmp/QLFits3_CFITSIO_tmp_summary_%d.fits)", arc4random()];
-    
-    // cfitsio has troubles opening files with paths containing whitespaces.
-    // See http://heasarc.gsfc.nasa.gov/docs/software/fitsio/c/c_user/node90.html to workaround this.
-    NSMutableString *filePath = [[path path] mutableCopy];
-    if ([filePath containsString:@" "]) {
-        [filePath appendString:tmpPath];
+    if ([URL isFileURL]) {
+        status = OPEN_DISK_FILE; // This is crucial to avoid crazy parsing by cfitsio of the file path.
     }
-    
-	fits_open_file(&fits, [[path path] cStringUsingEncoding:NSASCIIStringEncoding], READONLY, &status);
+    // Use 'path' and not 'absoluteString' to avoid parsing of file://
+	fits_open_file(&fits, [[URL path] fileSystemRepresentation], READONLY, &status);
 	
 	if (status) {
 		return nil;
@@ -82,10 +77,6 @@
 		}
 	}
     
-    if ([filePath hasSuffix:tmpPath]) {
-        fits_delete_file(fits, &status);
-    }
-	
 	NSMutableString *summary = [NSMutableString string];
 	if (numImg == 1) {
 		[summary appendString:@"1 image"];
@@ -107,17 +98,16 @@
 	return FITSsummary;
 }
 
-- (id)initWithURL:(NSURL *)path
+- (id)initWithURL:(NSURL *)URL
 {
-	NSAssert(path, @"URL path cannot be nil");
-	NSAssert([[NSFileManager defaultManager] fileExistsAtPath:[path path]],	@"FITS file must exists.");
+	NSAssert(URL, @"URL path cannot be nil");
+	NSAssert([[NSFileManager defaultManager] fileExistsAtPath:[URL path]],	@"FITS file must exists.");
 	
 	// check for correct FITS extension.
 	
 	self = [super init];
 	if (self) {
-		_fileURL = [path copy];
-        _tmpFilePath = [NSString stringWithFormat:@"(!/tmp/QLFits3_CFITSIO_tmp_%d.fits)", arc4random()];
+		_fileURL = [URL copy];
         _status = 0; // Must be initialised, according to documentation.
 		_isOpen = NO;
 		_HDUs = [[NSMutableArray alloc] init];
@@ -141,15 +131,12 @@
 	if (!_isOpen) {
 		DebugLog(@"Opening FITS file at %@", [_fileURL path]);
         
-        // cfitsio has troubles opening files with paths containing whitespaces.
-        // See http://heasarc.gsfc.nasa.gov/docs/software/fitsio/c/c_user/node90.html to workaround this.
-        NSMutableString *filePath = [[_fileURL path] mutableCopy];
-        if ([filePath containsString:@" "]) {
-            [filePath appendString:_tmpFilePath];
+        _status = CFITSIO_STATUS_OK; // Always put it to OK before using it, following documentation
+        if ([_fileURL isFileURL]) {
+            _status = OPEN_DISK_FILE; // This is crucial to avoid crazy parsing by cfitsio of the file path.
         }
-        
-        _status = CFITSIO_STATUS_OK; // Always put it to OK before using it, following documentation.        
-        fits_open_file(&_fits, [[_fileURL path] cStringUsingEncoding:NSASCIIStringEncoding], READONLY, &_status);
+        // Use 'path' and not 'absoluteString' to avoid parsing of file://
+        fits_open_file(&_fits, [[_fileURL path] fileSystemRepresentation], READONLY, &_status);
 		
 		if (_status > 0) {
 			NSLog(@"Error status %d opening FITS file at path %@", _status, [_fileURL path]);
@@ -185,13 +172,7 @@
 {
 	if (_isOpen) {
         _status = CFITSIO_STATUS_OK;
-        
-        if ([[_fileURL path] containsString:@" "]) {
-            fits_delete_file(_fits, &_status);
-        }
-        else {
-            fits_close_file(_fits, &_status);
-        }
+        fits_close_file(_fits, &_status);
 		_isOpen = NO;
 	}
 }
