@@ -28,6 +28,8 @@
 - (NSInteger)countOfHDUs;
 - (FITSHDUType)typeOfHDUAtIndex:(NSUInteger)index;
 
+- (NSDictionary *)shortSummary;
+
 - (void)asyncLoadHeaderOfHDUAtIndex:(NSUInteger)index onCompletion:(dispatch_block_t)block;
 - (void)asyncLoadDataOfHDUAtIndex:(NSUInteger)index onCompletion:(dispatch_block_t)block;
 

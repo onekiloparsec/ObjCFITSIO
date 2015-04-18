@@ -42,60 +42,10 @@
 
 + (NSDictionary *)FITSFileShortSummaryWithURL:(NSURL *)URL
 {
-	fitsfile *fits;
-	CFITSIO_STATUS status = CFITSIO_STATUS_OK;
-    if ([URL isFileURL]) {
-        status = OPEN_DISK_FILE; // This is crucial to avoid crazy parsing by cfitsio of the file path.
-    }
-    // Use 'path' and not 'absoluteString' to avoid parsing of file://
-	fits_open_file(&fits, [[URL path] fileSystemRepresentation], READONLY, &status);
-	
-	if (status) {
-		return nil;
-	}
-	
-	NSMutableArray *titles = [NSMutableArray array];
-	NSMutableArray *subtitles = [NSMutableArray array];
-	
-	int HDUCount = 0;
-	fits_get_num_hdus(fits, &HDUCount, &status);
-	
-	int numImg = 0;
-
-	for (int index = 0; index < HDUCount; index++) {
-		fits_movabs_hdu(fits, (int)index+1, NULL, &status);
-		int type = FITSHDUTypeUndefined;		
-		fits_get_hdu_type(fits, &type, &status);
-
-		if (type == FITSHDUTypeImage) {
-			FITSSize fitsSize = [FITSFile fitsFile:fits HDUImageSizeAtIndex:index];
-			if (!FITSIsEmptySize(fitsSize)) {
-				[titles addObject:[NSString FITSHDUTypeString:type]];
-				[subtitles addObject:NSStringFromFITSSize(fitsSize)];
-				numImg ++;
-			}
-		}
-	}
-    
-	NSMutableString *summary = [NSMutableString string];
-	if (numImg == 1) {
-		[summary appendString:@"1 image"];
-	}
-	else if (numImg > 1) {
-		[summary appendFormat:@"%d images", numImg];
-	}
-	
-	if ([summary length]) {
-		[summary appendString:@", "];
-	}
-	
-	[summary appendFormat:@"%d HDU", HDUCount];
-	if (HDUCount > 1) {
-		[summary appendString:@"s"];
-	}
-	
-    NSDictionary *FITSsummary = @{@"titles": titles, @"subtitles": subtitles, @"summary": summary};
-	return FITSsummary;
+    FITSFile *fits = [FITSFile FITSFileWithURL:URL];
+    NSDictionary *summary = [fits shortSummary];
+    [fits close];
+    return summary;
 }
 
 - (id)initWithURL:(NSURL *)URL
@@ -135,7 +85,7 @@
         if ([_fileURL isFileURL]) {
             _status = OPEN_DISK_FILE; // This is crucial to avoid crazy parsing by cfitsio of the file path.
         }
-        // Use 'path' and not 'absoluteString' to avoid parsing of file://
+        // Use 'path' and not 'absoluteString' to avoid parsing of 'file://'
         fits_open_file(&_fits, [[_fileURL path] fileSystemRepresentation], READONLY, &_status);
 		
 		if (_status > 0) {
@@ -218,6 +168,54 @@
 			 index, [_HDUs count]);
 	
 	return (FITSHDUType)[(FITSHDU *)[_HDUs objectAtIndex:index] type];
+}
+
+- (NSDictionary *)shortSummary
+{
+    if (!_isOpen) {
+        return nil;
+    }
+    
+    NSMutableArray *titles = [NSMutableArray array];
+    NSMutableArray *subtitles = [NSMutableArray array];
+    
+    int HDUCount = 0;
+    fits_get_num_hdus(_fits, &HDUCount, &_status);
+    
+    int numImg = 0;
+    
+    for (int index = 0; index < HDUCount; index++) {
+        fits_movabs_hdu(_fits, (int)index+1, NULL, &_status);
+        int type = FITSHDUTypeUndefined;
+        fits_get_hdu_type(_fits, &type, &_status);
+        
+        if (type == FITSHDUTypeImage) {
+            FITSSize fitsSize = [FITSFile fitsFile:_fits HDUImageSizeAtIndex:index];
+            if (!FITSIsEmptySize(fitsSize)) {
+                [titles addObject:[NSString FITSHDUTypeString:type]];
+                [subtitles addObject:NSStringFromFITSSize(fitsSize)];
+                numImg ++;
+            }
+        }
+    }
+    
+    NSMutableString *summary = [NSMutableString string];
+    [summary appendFormat:@"%d HDU", HDUCount];
+    if (HDUCount > 1) {
+        [summary appendString:@"s"];
+    }
+    if (numImg > 0) {
+        [summary appendString:@", "];
+    }
+    if (numImg == 1) {
+        [summary appendString:@"1 image"];
+    }
+    else if (numImg > 1) {
+        [summary appendFormat:@"%d images", numImg];
+    }
+
+    NSDictionary *FITSsummary = @{@"titles": titles, @"subtitles": subtitles, @"summary": summary};
+    return FITSsummary;
 }
 
 #pragma mark - Header
