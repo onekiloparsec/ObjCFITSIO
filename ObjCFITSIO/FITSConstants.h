@@ -162,6 +162,8 @@ typedef NS_ENUM(int, CFITSIO_STATUS) {
     CFITSIO_STATUS_APPROX_WCS_KEY = 506 // approximate wcs keyword values were returned
 };
 
+NSString * NSStringFromCFITSIOStatus(CFITSIO_STATUS status);
+
 typedef NS_ENUM(int, FITSImageType) {
 	FITSImageTypeByte		= BYTE_IMG,
 	FITSImageTypeShort		= SHORT_IMG,
