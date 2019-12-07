@@ -55,8 +55,6 @@
 	NSBitmapImageRep *newBitmapRep = [bitmapRep copy];
 	DebugLog(@"Applying zscale to image rep %@.", NSStringFromFITSSize(self.size));
 	
-	NSUInteger maxPixel = 255;
-	
 	NSUInteger pix;
 	for (NSInteger i = 0; i < self.size.nx; i ++) {
 		for (NSInteger j = 0; j < self.size.ny; j ++) {
@@ -65,10 +63,12 @@
 			[bitmapRep getPixel:&pix atX:i y:j];
 			
 			if (pix < z1) {
-				[newBitmapRep setPixel:0 atX:i y:j];
+                NSUInteger maxPixel = 0;
+				[newBitmapRep setPixel:&maxPixel atX:i y:j];
 			}
 			else if (pix > z2) {
-				[newBitmapRep setPixel:&maxPixel atX:i y:j];
+                NSUInteger maxPixel = 255;
+                [newBitmapRep setPixel:&maxPixel atX:i y:j];
 			}
 			else {
 				NSUInteger value = (NSUInteger) floor(255.0 * (pix - z1) / (1.0 * (z2 - z1)));
