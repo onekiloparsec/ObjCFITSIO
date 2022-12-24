@@ -212,7 +212,7 @@ static NSInteger queueCount = 0;
 	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationLow];
 	[tmpImage setSize:[transform transformSize:[tmpImage size]]];
 	NSPoint p = NSMakePoint((s.width-tmpImage.size.width)/2.0, (s.height-tmpImage.size.height)/2.0);
-    [tmpImage drawAtPoint:p fromRect:NSZeroRect operation:NSCompositeCopy fraction:1.0];
+    [tmpImage drawAtPoint:p fromRect:NSZeroRect operation:NSCompositingOperationCopy fraction:1.0];
 	[newImage unlockFocus];
 		
 	return newImage;
